@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이제이필름 — 숏폼 마케팅 에이전시</title>
+  <meta name="description" content="브랜드를 움직이는 숏폼 콘텐츠. 기획부터 Meta 광고까지, EJE Film이 영상 마케팅의 전부를 책임집니다.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+  <script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            accent: '#E8FF47',
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'marquee': 'marquee 28s linear infinite',
+            'fadeInUp': 'fadeInUp 0.7s ease forwards',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' },
+            },
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            fadeInUp: {
+              from: { opacity: '0', transform: 'translateY(2rem)' },
+              to: { opacity: '1', transform: 'translateY(0)' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    * { -webkit-font-smoothing: antialiased; }
+    body { background-color: #09090b; }
+    .break-keep { word-break: keep-all; }
+    .noise::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.35;
+    }
+    .glass {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.07);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .double-bezel {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 1px 3px rgba(0,0,0,0.5);
+    }
+    .double-bezel::before {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border-radius: inherit;
+      border: 1px solid rgba(255,255,255,0.05);
+      pointer-events: none;
+    }
+    .cta-btn {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cta-btn:hover { transform: scale(1.02); }
+    .cta-btn:active { transform: scale(0.98); }
+    .reveal {
+      opacity: 0;
+      transform: translateY(2rem);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .accent-text { color: #E8FF47; }
+    .accent-bg { background-color: #E8FF47; }
+    .accent-border { border-color: #E8FF47; }
+    .mesh-bg {
+      background:
+        radial-gradient(ellipse 60% 40% at 70% 20%, rgba(232,255,71,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(232,255,71,0.04) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 90% 90%, rgba(255,255,255,0.02) 0%, transparent 60%);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+<body class="noise text-zinc-100 overflow-x-hidden" style="font-family: 'Pretendard', system-ui, sans-serif;">
+
+  <!-- ===== NAV ===== -->
+  <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-40 w-[calc(100%-2rem)] max-w-5xl">
+    <div class="glass rounded-2xl px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-lg tracking-tight text-white">EJE<span class="accent-text">.</span>film</span>
+      </div>
+      <div class="hidden md:flex items-center gap-8 text-sm text-zinc-400">
+        <a href="#services" class="hover:text-white transition-colors duration-200">서비스</a>
+        <a href="#portfolio" class="hover:text-white transition-colors duration-200">포트폴리오</a>
+        <a href="#results" class="hover:text-white transition-colors duration-200">성과</a>
+        <a href="#contact" class="hover:text-white transition-colors duration-200">문의</a>
+      </div>
+      <a href="#contact" class="cta-btn accent-bg text-zinc-950 font-semibold text-sm px-5 py-2.5 rounded-xl">
+        무료 상담하기
+      </a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="min-h-[100dvh] mesh-bg flex items-center pt-24 pb-16 px-4">
+    <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <!-- Left: Text -->
+      <div class="space-y-8" style="animation: fadeInUp 0.8s ease forwards;">
+        <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-xs text-zinc-400">
+          <span class="w-1.5 h-1.5 rounded-full accent-bg inline-block animate-pulse"></span>
+          현재 3개사 클라이언트 운영 중
+        </div>
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight break-keep">
+          <span class="gradient-text">브랜드를 <br>움직이는</span>
+          <br>
+          <span class="accent-text">숏폼</span> 마케팅
+        </h1>
+        <p class="text-zinc-400 text-lg leading-relaxed max-w-[52ch] break-keep">
+          기획부터 촬영, 편집, Meta 광고 집행까지. 영상 마케팅의 전 과정을 책임지는 방식으로 브랜드 성장을 만들어냅니다.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#contact" class="cta-btn accent-bg text-zinc-950 font-bold text-base px-8 py-4 rounded-2xl flex items-center justify-center gap-2 min-h-[52px]">
+            지금 무료 상담하기
+            <iconify-icon icon="solar:arrow-right-linear" class="text-lg"></iconify-icon>
+          </a>
+          <a href="#portfolio" class="cta-btn glass text-white font-semibold text-base px-8 py-4 rounded-2xl flex items-center justify-center gap-2 min-h-[52px] hover:border-white/20 transition-all duration-300">
+            포트폴리오 보기
+          </a>
+        </div>
+        <!-- Mini trust -->
+        <div class="flex items-center gap-6 pt-2">
+          <div class="flex -space-x-2">
+            <img src="https://i.pravatar.cc/40?u=yunha" class="w-9 h-9 rounded-full border-2 border-zinc-900 object-cover" loading="lazy" decoding="async" alt="">
+            <img src="https://i.pravatar.cc/40?u=junho" class="w-9 h-9 rounded-full border-2 border-zinc-900 object-cover" loading="lazy" decoding="async" alt="">
+            <img src="https://i.pravatar.cc/40?u=soyeon" class="w-9 h-9 rounded-full border-2 border-zinc-900 object-cover" loading="lazy" decoding="async" alt="">
+          </div>
+          <div>
+            <div class="flex items-center gap-1">
+              <iconify-icon icon="solar:star-bold" class="text-accent-text text-sm" style="color:#E8FF47"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" class="text-sm" style="color:#E8FF47"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" class="text-sm" style="color:#E8FF47"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" class="text-sm" style="color:#E8FF47"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" class="text-sm" style="color:#E8FF47"></iconify-icon>
+              <span class="text-zinc-300 text-sm font-semibold ml-1">4.9</span>
+            </div>
+            <p class="text-zinc-500 text-xs mt-0.5">클라이언트 만족도</p>
+          </div>
+        </div>
+      </div>
+      <!-- Right: Visual -->
+      <div class="relative hidden md:block" style="animation: fadeInUp 1s ease 0.15s forwards; opacity:0;">
+        <div class="relative animate-float">
+          <div class="double-bezel relative rounded-3xl overflow-hidden" style="aspect-ratio:9/16; max-height:540px;">
+            <img src="https://picsum.photos/seed/shortform_video/540/960" class="w-full h-full object-cover" loading="lazy" decoding="async" alt="숏폼 영상 제작 포트폴리오">
+            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <p class="text-xs text-zinc-400 mb-1">최근 프로젝트</p>
+              <p class="font-semibold text-white break-keep">바우크래프트 — 아나톨리아 타일 브랜드 영상</p>
+              <div class="flex items-center gap-4 mt-2 text-xs text-zinc-400">
+                <span class="flex items-center gap-1">
+                  <iconify-icon icon="solar:eye-linear"></iconify-icon> 12.4만 도달
+                </span>
+                <span class="flex items-center gap-1">
+                  <iconify-icon icon="solar:chart-2-linear"></iconify-icon> ROAS 4.2
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Floating cards -->
+        <div class="glass absolute -left-8 top-16 rounded-2xl p-4 w-44 hidden lg:block" style="animation: float 7s ease-in-out 1s infinite;">
+          <p class="text-xs text-zinc-500 mb-1">이번 달 도달</p>
+          <p class="text-2xl font-bold text-white">83<span class="text-zinc-400 text-base font-normal">만+</span></p>
+          <p class="text-xs text-zinc-500 mt-0.5">전월 대비 +31%</p>
+        </div>
+        <div class="glass absolute -right-6 bottom-24 rounded-2xl p-4 w-40 hidden lg:block" style="animation: float 8s ease-in-out 2s infinite;">
+          <p class="text-xs text-zinc-500 mb-1">평균 ROAS</p>
+          <p class="text-2xl font-bold accent-text">4.7<span class="text-zinc-400 text-base font-normal">x</span></p>
+          <p class="text-xs text-zinc-500 mt-0.5">Meta 광고 기준</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CLIENT MARQUEE ===== -->
+  <section class="py-10 border-y border-zinc-800/60 overflow-hidden">
+    <p class="text-center text-xs text-zinc-600 uppercase tracking-widest mb-6">함께한 브랜드</p>
+    <div class="flex gap-16 items-center" style="animation: marquee 28s linear infinite; width: max-content;">
+      <span class="text-zinc-500 font-semibold text-lg whitespace-nowrap">소리를디자인하다</span>
+      <span class="w-1 h-1 rounded-full bg-zinc-700"></span>
+      <span class="text-zinc-500 font-semibold text-lg whitespace-nowrap">제이엠몬도</span>
+      <span class="w-1 h-1 rounded-full bg-zinc-700"></span>
+      <span class="text-zinc-500 font-semibold text-lg whitespace-nowrap">바우크래프트</span>
+      <span class="w-1 h-1 rounded-full bg-zinc-700"></span>
+      <span class="text-zinc-500 font-semibold text-lg whitespace-nowrap">아나톨리아</span>
+      <span class="w-1 h-1 rounded-full bg-zinc-700"></span>
+      <span class="text-zinc-500 font-semibold text-lg whitespace-nowrap">플로리안</span>
+      <span class="w-1 h-1 rounded-full bg-zinc-700"></span>
+      <!-- duplicate for seamless loop -->
+      <span class="text-zinc-500 font-semibold text-lg whitespace-nowrap">소리를디자인하다</span>
+      <span class="w-1 h-1 rounded-full bg-zinc-700"></span>
+      <span class="text-zinc-500 font-semibold text-lg whitespace-nowrap">제이엠몬도</span>
+      <span class="w-1 h-1 rounded-full bg-zinc-700"></span>
+      <span class="text-zinc-500 font-semibold text-lg whitespace-nowrap">바우크래프트</span>
+      <span class="w-1 h-1 rounded-full bg-zinc-700"></span>
+      <span class="text-zinc-500 font-semibold text-lg whitespace-nowrap">아나톨리아</span>
+      <span class="w-1 h-1 rounded-full bg-zinc-700"></span>
+      <span class="text-zinc-500 font-semibold text-lg whitespace-nowrap">플로리안</span>
+      <span class="w-1 h-1 rounded-full bg-zinc-700"></span>
+    </div>
+  </section>
+
+  <!-- ===== METRICS ===== -->
+  <section class="py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal" id="metrics">
+        <div class="double-bezel relative rounded-3xl p-8 text-center">
+          <p class="text-4xl md:text-5xl font-bold text-white" data-count="83">0</p>
+          <p class="text-zinc-500 text-sm mt-2 break-keep">월 평균 콘텐츠 도달 (만명)</p>
+        </div>
+        <div class="double-bezel relative rounded-3xl p-8 text-center">
+          <p class="text-4xl md:text-5xl font-bold accent-text" data-count="47">0</p>
+          <p class="text-zinc-500 text-sm mt-2 break-keep">누적 영상 제작 편수</p>
+        </div>
+        <div class="double-bezel relative rounded-3xl p-8 text-center">
+          <p class="text-4xl md:text-5xl font-bold text-white">4.7<span class="text-2xl text-zinc-400">x</span></p>
+          <p class="text-zinc-500 text-sm mt-2 break-keep">평균 Meta 광고 ROAS</p>
+        </div>
+        <div class="double-bezel relative rounded-3xl p-8 text-center">
+          <p class="text-4xl md:text-5xl font-bold text-white" data-count="3">0</p>
+          <p class="text-zinc-500 text-sm mt-2 break-keep">현재 장기 계약 클라이언트</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" class="py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-14 reveal">
+        <p class="text-xs text-zinc-600 uppercase tracking-widest mb-3">서비스</p>
+        <h2 class="text-4xl md:text-5xl font-bold leading-tight tracking-tight break-keep">
+          영상 마케팅의 <br><span class="accent-text">전부</span>를 다룹니다
+        </h2>
+        <p class="text-zinc-400 mt-4 text-base leading-relaxed max-w-[52ch] break-keep">각 서비스는 브랜드 상황에 맞춰 티어를 선택하거나 조합해 구성할 수 있습니다.</p>
+      </div>
+
+      <!-- Row 1: 메인 2개 (숏폼 + SNS) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 reveal mb-4">
+
+        <!-- 숏폼 콘텐츠 제작 -->
+        <div class="double-bezel relative rounded-3xl overflow-hidden group">
+          <img src="https://picsum.photos/seed/shortform_edit/800/420" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" alt="숏폼 영상 제작">
+          <div class="p-8">
+            <div class="flex items-start justify-between mb-4">
+              <div class="w-12 h-12 glass rounded-2xl flex items-center justify-center">
+                <iconify-icon icon="solar:videocamera-record-bold" class="text-2xl accent-text"></iconify-icon>
+              </div>
+              <span class="glass text-xs text-zinc-400 rounded-full px-3 py-1.5">월 단위 / 건당</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2 break-keep">숏폼 콘텐츠 제작</h3>
+            <p class="text-zinc-400 text-sm leading-relaxed break-keep mb-6">릴스·쇼츠 포맷 기획부터 촬영, 편집까지 전담합니다. 알고리즘 친화적 구성으로 자연 도달을 극대화합니다.</p>
+            <div class="space-y-2.5">
+              <div class="flex items-center justify-between py-2.5 border-b border-zinc-800/70">
+                <div>
+                  <span class="text-white text-sm font-semibold">Starter</span>
+                  <p class="text-zinc-500 text-xs mt-0.5 break-keep">클라이언트 소재 편집·자막·BGM</p>
+                </div>
+                <iconify-icon icon="solar:arrow-right-linear" class="text-zinc-600 text-lg flex-shrink-0"></iconify-icon>
+              </div>
+              <div class="flex items-center justify-between py-2.5 border-b border-zinc-800/70">
+                <div>
+                  <span class="text-white text-sm font-semibold">Standard</span>
+                  <p class="text-zinc-500 text-xs mt-0.5 break-keep">기획+촬영+편집, 월 1회 촬영 세션</p>
+                </div>
+                <iconify-icon icon="solar:arrow-right-linear" class="text-zinc-600 text-lg flex-shrink-0"></iconify-icon>
+              </div>
+              <div class="flex items-center justify-between py-2.5">
+                <div>
+                  <span class="accent-text text-sm font-semibold">Premium</span>
+                  <p class="text-zinc-500 text-xs mt-0.5 break-keep">모델·스튜디오·헤어·메이크업 포함</p>
+                </div>
+                <iconify-icon icon="solar:arrow-right-linear" class="text-accent-text text-lg flex-shrink-0" style="color:#E8FF47"></iconify-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SNS 마케팅·메타 광고 -->
+        <div class="double-bezel relative rounded-3xl overflow-hidden group">
+          <img src="https://picsum.photos/seed/meta_ads/800/420" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" alt="SNS 마케팅">
+          <div class="p-8">
+            <div class="flex items-start justify-between mb-4">
+              <div class="w-12 h-12 glass rounded-2xl flex items-center justify-center">
+                <iconify-icon icon="solar:chart-square-bold" class="text-2xl accent-text"></iconify-icon>
+              </div>
+              <span class="glass text-xs text-zinc-400 rounded-full px-3 py-1.5">월 단위 / 종량제</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2 break-keep">SNS 마케팅 · Meta 광고</h3>
+            <p class="text-zinc-400 text-sm leading-relaxed break-keep mb-6">광고 최적화 편집부터 캠페인 전략, 월간 리포팅까지. ROAS 목표를 명확히 설정하고 달성합니다.</p>
+            <div class="space-y-2.5">
+              <div class="flex items-center justify-between py-2.5 border-b border-zinc-800/70">
+                <div>
+                  <span class="text-white text-sm font-semibold">Ad-ready 편집</span>
+                  <p class="text-zinc-500 text-xs mt-0.5 break-keep">광고 최적화 편집, 훅 강조·포맷 리사이징</p>
+                </div>
+                <iconify-icon icon="solar:arrow-right-linear" class="text-zinc-600 text-lg flex-shrink-0"></iconify-icon>
+              </div>
+              <div class="flex items-center justify-between py-2.5 border-b border-zinc-800/70">
+                <div>
+                  <span class="text-white text-sm font-semibold">Ad Management</span>
+                  <p class="text-zinc-500 text-xs mt-0.5 break-keep">캠페인 세팅·타겟·예산 배분, 주간 리포트</p>
+                </div>
+                <iconify-icon icon="solar:arrow-right-linear" class="text-zinc-600 text-lg flex-shrink-0"></iconify-icon>
+              </div>
+              <div class="flex items-center justify-between py-2.5 border-b border-zinc-800/70">
+                <div>
+                  <span class="text-white text-sm font-semibold">Content + Ads</span>
+                  <p class="text-zinc-500 text-xs mt-0.5 break-keep">콘텐츠 6~8편 제작 + 광고 집행, 월 리포트</p>
+                </div>
+                <iconify-icon icon="solar:arrow-right-linear" class="text-zinc-600 text-lg flex-shrink-0"></iconify-icon>
+              </div>
+              <div class="flex items-center justify-between py-2.5">
+                <div>
+                  <span class="accent-text text-sm font-semibold">Brand Growth</span>
+                  <p class="text-zinc-500 text-xs mt-0.5 break-keep">콘텐츠 캘린더·A/B 테스트·분기 전략 미팅</p>
+                </div>
+                <iconify-icon icon="solar:arrow-right-linear" class="text-lg flex-shrink-0" style="color:#E8FF47"></iconify-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2: 촬영 2개 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 reveal">
+
+        <!-- 기업·대관 인터뷰 촬영 -->
+        <div class="double-bezel relative rounded-3xl p-8 md:col-span-2">
+          <div class="flex items-start justify-between mb-5">
+            <div class="w-12 h-12 glass rounded-2xl flex items-center justify-center">
+              <iconify-icon icon="solar:microphone-bold" class="text-2xl accent-text"></iconify-icon>
+            </div>
+            <span class="glass text-xs text-zinc-400 rounded-full px-3 py-1.5">건당</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 break-keep">기업 · 대관 인터뷰 촬영</h3>
+          <p class="text-zinc-400 text-sm leading-relaxed break-keep mb-6">대표 인터뷰, 직원 스토리, 공간 소개 등 브랜드 신뢰를 높이는 영상 콘텐츠를 제작합니다.</p>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="glass rounded-2xl p-4">
+              <p class="text-white text-sm font-semibold mb-1">Basic</p>
+              <p class="text-zinc-500 text-xs break-keep leading-relaxed">1분 홍보용 단일 인터뷰 촬영·편집</p>
+            </div>
+            <div class="glass rounded-2xl p-4">
+              <p class="text-white text-sm font-semibold mb-1">Standard</p>
+              <p class="text-zinc-500 text-xs break-keep leading-relaxed">질문서+디렉팅, 롱폼 1편+숏폼 3편</p>
+            </div>
+            <div class="glass rounded-2xl p-4 border border-zinc-600/40">
+              <p class="accent-text text-sm font-semibold mb-1">Premium</p>
+              <p class="text-zinc-500 text-xs break-keep leading-relaxed">멀티캠+B-roll, 롱폼+숏폼 5편+메이킹</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 음악 라이브·공연 촬영 -->
+        <div class="double-bezel relative rounded-3xl p-8">
+          <div class="w-12 h-12 glass rounded-2xl flex items-center justify-center mb-5">
+            <iconify-icon icon="solar:music-note-bold" class="text-2xl accent-text"></iconify-icon>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 break-keep">음악 라이브 · 공연 촬영</h3>
+          <p class="text-zinc-400 text-sm leading-relaxed break-keep mb-6">워십 라이브, 공연, 아티스트 콘텐츠 전문 촬영·편집.</p>
+          <div class="space-y-2.5">
+            <div class="flex items-center gap-3 py-2 border-b border-zinc-800/70">
+              <iconify-icon icon="solar:record-bold" class="text-zinc-600 flex-shrink-0"></iconify-icon>
+              <div>
+                <p class="text-white text-sm font-semibold">Live Archive</p>
+                <p class="text-zinc-500 text-xs break-keep">고정캠 1대, 풀버전 편집본 1편</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 py-2 border-b border-zinc-800/70">
+              <iconify-icon icon="solar:users-group-rounded-bold" class="text-zinc-600 flex-shrink-0"></iconify-icon>
+              <div>
+                <p class="text-white text-sm font-semibold">Fan Package</p>
+                <p class="text-zinc-500 text-xs break-keep">멀티캠+팬반응컷, 숏폼 3편</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 py-2">
+              <iconify-icon icon="solar:star-bold" class="flex-shrink-0" style="color:#E8FF47"></iconify-icon>
+              <div>
+                <p class="accent-text text-sm font-semibold">Release Package</p>
+                <p class="text-zinc-500 text-xs break-keep">공연+인터뷰+뮤직비디오 티저</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PORTFOLIO ===== -->
+  <section id="portfolio" class="py-20 px-4 bg-zinc-900/30">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14 reveal">
+        <div>
+          <p class="text-xs text-zinc-600 uppercase tracking-widest mb-3">포트폴리오</p>
+          <h2 class="text-4xl md:text-5xl font-bold leading-tight tracking-tight break-keep">
+            실제로 만든 <span class="accent-text">결과물</span>
+          </h2>
+        </div>
+        <p class="text-zinc-500 text-sm max-w-[42ch] break-keep">모든 영상은 EJE Film이 직접 기획, 촬영, 편집했으며 클라이언트의 비즈니스 목표에 맞게 제작되었습니다.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 reveal">
+        <!-- Portfolio items -->
+        <div class="double-bezel relative rounded-2xl overflow-hidden group cursor-pointer" style="aspect-ratio:9/16;">
+          <img src="https://picsum.photos/seed/portfolio1/400/711" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async" alt="">
+          <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+            <div>
+              <p class="text-white font-semibold text-sm break-keep">바우크래프트</p>
+              <p class="text-zinc-400 text-xs">브랜드 릴스</p>
+            </div>
+          </div>
+        </div>
+        <div class="double-bezel relative rounded-2xl overflow-hidden group cursor-pointer" style="aspect-ratio:9/16;">
+          <img src="https://picsum.photos/seed/portfolio2/400/711" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async" alt="">
+          <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+            <div>
+              <p class="text-white font-semibold text-sm break-keep">소리를디자인하다</p>
+              <p class="text-zinc-400 text-xs">제품 소개</p>
+            </div>
+          </div>
+        </div>
+        <div class="double-bezel relative rounded-2xl overflow-hidden group cursor-pointer" style="aspect-ratio:9/16;">
+          <img src="https://picsum.photos/seed/portfolio3/400/711" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async" alt="">
+          <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+            <div>
+              <p class="text-white font-semibold text-sm break-keep">제이엠몬도</p>
+              <p class="text-zinc-400 text-xs">서비스 영상</p>
+            </div>
+          </div>
+        </div>
+        <div class="double-bezel relative rounded-2xl overflow-hidden group cursor-pointer" style="aspect-ratio:9/16;">
+          <img src="https://picsum.photos/seed/portfolio4/400/711" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async" alt="">
+          <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+            <div>
+              <p class="text-white font-semibold text-sm break-keep">아나톨리아</p>
+              <p class="text-zinc-400 text-xs">쇼룸 투어</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-10 reveal">
+        <p class="text-zinc-500 text-sm">더 많은 포트폴리오는 상담 시 공유드립니다</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS (Masonry) ===== -->
+  <section id="results" class="py-20 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-14 reveal">
+        <p class="text-xs text-zinc-600 uppercase tracking-widest mb-3">클라이언트 후기</p>
+        <h2 class="text-4xl md:text-5xl font-bold leading-tight tracking-tight break-keep">
+          같이 일한 분들의 <span class="accent-text">이야기</span>
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-4 reveal">
+        <!-- Tall card -->
+        <div class="double-bezel relative rounded-3xl p-7 md:row-span-2 flex flex-col justify-between">
+          <div>
+            <div class="flex gap-1 mb-5">
+              <iconify-icon icon="solar:star-bold" style="color:#E8FF47"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" style="color:#E8FF47"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" style="color:#E8FF47"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" style="color:#E8FF47"></iconify-icon>
+              <iconify-icon icon="solar:star-bold" style="color:#E8FF47"></iconify-icon>
+            </div>
+            <p class="text-zinc-200 text-lg leading-relaxed break-keep">"처음엔 영상 하나 맡겼는데, 이제는 Meta 광고까지 같이 하고 있어요. 수치가 눈에 보이게 좋아지니까 계속 믿고 맡기게 됩니다. 특히 월간 리포트가 너무 구체적이라 저도 사업을 더 잘 이해하게 됐어요."</p>
+          </div>
+          <div class="flex items-center gap-3 mt-6 pt-6 border-t border-zinc-800">
+            <img src="https://i.pravatar.cc/48?u=kimjunho_ceo" class="w-11 h-11 rounded-full object-cover" loading="lazy" decoding="async" alt="">
+            <div>
+              <p class="text-zinc-500 text-xs">바우크래프트 대표</p>
+            </div>
+          </div>
+        </div>
+        <!-- Normal cards -->
+        <div class="double-bezel relative rounded-3xl p-7">
+          <div class="flex gap-1 mb-4">
+            <iconify-icon icon="solar:star-bold" style="color:#E8FF47"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" style="color:#E8FF47"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" style="color:#E8FF47"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" style="color:#E8FF47"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" style="color:#E8FF47"></iconify-icon>
+          </div>
+          <p class="text-zinc-200 leading-relaxed break-keep">"인스타 릴스 올리기 시작한 지 3달 만에 팔로워가 2.3배 늘었어요. 콘텐츠 퀄리티 자체가 달라서 고객들 반응이 확실히 다릅니다."</p>
+          <div class="flex items-center gap-3 mt-5 pt-5 border-t border-zinc-800">
+            <img src="https://i.pravatar.cc/48?u=parksooyeon" class="w-10 h-10 rounded-full object-cover" loading="lazy" decoding="async" alt="">
+            <div>
+              <p class="text-zinc-500 text-xs">소리를디자인하다 마케터</p>
+            </div>
+          </div>
+        </div>
+        <div class="double-bezel relative rounded-3xl p-7">
+          <div class="flex gap-1 mb-4">
+            <iconify-icon icon="solar:star-bold" style="color:#E8FF47"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" style="color:#E8FF47"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" style="color:#E8FF47"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" style="color:#E8FF47"></iconify-icon>
+            <iconify-icon icon="solar:star-half-bold" style="color:#E8FF47"></iconify-icon>
+          </div>
+          <p class="text-zinc-200 leading-relaxed break-keep">"광고 집행 첫 달에 ROAS 5.1 나왔어요. 기대 이상이었고, 커뮤니케이션도 빠르고 명확해서 같이 일하기 편합니다."</p>
+          <div class="flex items-center gap-3 mt-5 pt-5 border-t border-zinc-800">
+            <img src="https://i.pravatar.cc/48?u=leejinho_jm" class="w-10 h-10 rounded-full object-cover" loading="lazy" decoding="async" alt="">
+            <div>
+              <p class="text-zinc-500 text-xs">제이엠몬도 실장</p>
+            </div>
+          </div>
+        </div>
+        <!-- Wide card -->
+        <div class="double-bezel relative rounded-3xl p-7 md:col-span-2">
+          <p class="text-zinc-400 text-sm mb-4 uppercase tracking-widest">성과 하이라이트</p>
+          <div class="grid grid-cols-3 gap-6">
+            <div>
+              <p class="text-3xl font-bold accent-text">+218%</p>
+              <p class="text-zinc-500 text-sm mt-1 break-keep">인스타 도달 증가</p>
+            </div>
+            <div>
+              <p class="text-3xl font-bold text-white">5.1x</p>
+              <p class="text-zinc-500 text-sm mt-1 break-keep">최고 ROAS 기록</p>
+            </div>
+            <div>
+              <p class="text-3xl font-bold text-white">12주</p>
+              <p class="text-zinc-500 text-sm mt-1 break-keep">평균 계약 전환 기간</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="py-20 px-4 bg-zinc-900/30">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-14 reveal">
+        <p class="text-xs text-zinc-600 uppercase tracking-widest mb-3">진행 방식</p>
+        <h2 class="text-4xl md:text-5xl font-bold leading-tight tracking-tight break-keep">
+          이렇게 <span class="accent-text">시작</span>됩니다
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-4 gap-4 reveal">
+        <div class="double-bezel relative rounded-3xl p-7">
+          <span class="text-5xl font-bold text-zinc-800 block mb-4">01</span>
+          <h3 class="text-lg font-bold text-white mb-2 break-keep">무료 상담</h3>
+          <p class="text-zinc-400 text-sm leading-relaxed break-keep">브랜드 현황, 목표, 예산을 파악하는 30분 미팅. 부담 없이 시작하세요.</p>
+        </div>
+        <div class="double-bezel relative rounded-3xl p-7">
+          <span class="text-5xl font-bold text-zinc-800 block mb-4">02</span>
+          <h3 class="text-lg font-bold text-white mb-2 break-keep">전략 제안</h3>
+          <p class="text-zinc-400 text-sm leading-relaxed break-keep">데이터와 경쟁사 분석을 바탕으로 맞춤형 콘텐츠 전략과 견적서를 제안합니다.</p>
+        </div>
+        <div class="double-bezel relative rounded-3xl p-7">
+          <span class="text-5xl font-bold text-zinc-800 block mb-4">03</span>
+          <h3 class="text-lg font-bold text-white mb-2 break-keep">제작 & 집행</h3>
+          <p class="text-zinc-400 text-sm leading-relaxed break-keep">월 N편 영상 제작 + SNS 운영 + Meta 광고까지 일괄 진행합니다.</p>
+        </div>
+        <div class="double-bezel relative rounded-3xl p-7">
+          <span class="text-5xl font-bold text-zinc-800 block mb-4">04</span>
+          <h3 class="text-lg font-bold text-white mb-2 break-keep">월간 리포팅</h3>
+          <p class="text-zinc-400 text-sm leading-relaxed break-keep">KPI 달성 현황, 개선 포인트, 다음 달 전략을 담은 상세 리포트 제공.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA SECTION ===== -->
+  <section id="contact" class="py-28 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="double-bezel relative rounded-3xl overflow-hidden reveal" style="background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232,255,71,0.08) 0%, transparent 70%);">
+        <div class="px-8 md:px-16 py-16 md:py-20 grid md:grid-cols-2 gap-12 items-start">
+          <!-- Left -->
+          <div>
+            <h2 class="text-4xl md:text-5xl font-bold leading-tight tracking-tight break-keep mb-6">
+              지금 바로<br>무료 상담<br><span class="accent-text">신청하기</span>
+            </h2>
+            <p class="text-zinc-400 leading-relaxed break-keep mb-8">
+              30분 미팅 하나로 브랜드에 딱 맞는 콘텐츠 전략을 확인하세요. 부담 없이 이야기 나눠봅시다.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 glass rounded-xl flex items-center justify-center flex-shrink-0">
+                  <iconify-icon icon="solar:check-circle-bold" class="text-lg" style="color:#E8FF47"></iconify-icon>
+                </div>
+                <p class="text-zinc-300 text-sm break-keep">무료 진단 — 현재 SNS/광고 성과 분석</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 glass rounded-xl flex items-center justify-center flex-shrink-0">
+                  <iconify-icon icon="solar:check-circle-bold" class="text-lg" style="color:#E8FF47"></iconify-icon>
+                </div>
+                <p class="text-zinc-300 text-sm break-keep">맞춤 제안서 — 업종 특화 콘텐츠 전략</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 glass rounded-xl flex items-center justify-center flex-shrink-0">
+                  <iconify-icon icon="solar:check-circle-bold" class="text-lg" style="color:#E8FF47"></iconify-icon>
+                </div>
+                <p class="text-zinc-300 text-sm break-keep">계약 전 샘플 영상 제공 (조건부)</p>
+              </div>
+            </div>
+          </div>
+          <!-- Right: Form -->
+          <div class="glass rounded-2xl p-7 space-y-4">
+            <div>
+              <label class="text-xs text-zinc-500 uppercase tracking-widest block mb-2">브랜드명 / 회사명</label>
+              <input type="text" placeholder="예: 바우크래프트" class="w-full bg-zinc-900/60 border border-zinc-700/60 rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-accent focus:ring-1 transition-colors duration-200" style="--tw-ring-color: #E8FF47;">
+            </div>
+            <div>
+              <label class="text-xs text-zinc-500 uppercase tracking-widest block mb-2">담당자 이름</label>
+              <input type="text" placeholder="홍길동" class="w-full bg-zinc-900/60 border border-zinc-700/60 rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-yellow-300 transition-colors duration-200">
+            </div>
+            <div>
+              <label class="text-xs text-zinc-500 uppercase tracking-widest block mb-2">연락처 (카카오 또는 전화)</label>
+              <input type="text" placeholder="010-XXXX-XXXX" class="w-full bg-zinc-900/60 border border-zinc-700/60 rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-yellow-300 transition-colors duration-200">
+            </div>
+            <div>
+              <label class="text-xs text-zinc-500 uppercase tracking-widest block mb-2">문의 내용</label>
+              <textarea rows="3" placeholder="현재 상황이나 궁금한 점을 자유롭게 적어주세요" class="w-full bg-zinc-900/60 border border-zinc-700/60 rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-yellow-300 transition-colors duration-200 resize-none"></textarea>
+            </div>
+            <button onclick="handleSubmit()" class="cta-btn w-full accent-bg text-zinc-950 font-bold text-base py-4 rounded-xl flex items-center justify-center gap-2 min-h-[52px]">
+              상담 신청하기
+              <iconify-icon icon="solar:arrow-right-bold" class="text-lg"></iconify-icon>
+            </button>
+            <p class="text-zinc-600 text-xs text-center break-keep">영업일 기준 24시간 내 연락드립니다</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="py-10 px-4 border-t border-zinc-800/60">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-lg tracking-tight text-white">EJE<span class="accent-text">.</span>film</span>
+        <span class="text-zinc-700">|</span>
+        <span class="text-zinc-500 text-sm">숏폼 마케팅 에이전시</span>
+      </div>
+      <div class="flex items-center gap-6 text-sm text-zinc-500">
+        <a href="#services" class="hover:text-zinc-300 transition-colors">서비스</a>
+        <a href="#portfolio" class="hover:text-zinc-300 transition-colors">포트폴리오</a>
+        <a href="#contact" class="hover:text-zinc-300 transition-colors">문의</a>
+      </div>
+      <p class="text-zinc-700 text-xs">© 2025 EJE Film. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // Count-up animation
+    function animateCount(el, target, duration = 1800) {
+      let start = 0;
+      const step = target / (duration / 16);
+      const timer = setInterval(() => {
+        start += step;
+        if (start >= target) {
+          el.textContent = target + (el.dataset.suffix || '');
+          clearInterval(timer);
+        } else {
+          el.textContent = Math.floor(start) + (el.dataset.suffix || '');
+        }
+      }, 16);
+    }
+
+    const metricsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('[data-count]').forEach(el => {
+            animateCount(el, parseInt(el.dataset.count));
+          });
+          metricsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    const metricsSection = document.getElementById('metrics');
+    if (metricsSection) metricsObserver.observe(metricsSection);
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Form submit
+    function handleSubmit() {
+      const btn = event.target.closest('button');
+      btn.textContent = '전송 완료! 곧 연락드릴게요';
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+    }
+  </script>
+
+</body>
+</html>
