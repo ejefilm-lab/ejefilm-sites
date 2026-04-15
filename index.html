@@ -125,86 +125,102 @@
     </div>
   </nav>
 
-  <!-- ===== HERO ===== -->
-  <section class="min-h-[100dvh] mesh-bg flex items-center pt-24 pb-16 px-4">
-    <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-      <!-- Left: Text -->
-      <div class="space-y-8" style="animation: fadeInUp 0.8s ease forwards;">
-        <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-xs text-zinc-400">
-          <span class="w-1.5 h-1.5 rounded-full accent-bg inline-block animate-pulse"></span>
-          현재 3개사 클라이언트 운영 중
-        </div>
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight break-keep">
-          <span class="gradient-text">브랜드를 <br>움직이는</span>
-          <br>
-          <span class="accent-text">숏폼</span> 마케팅
-        </h1>
-        <p class="text-zinc-400 text-lg leading-relaxed max-w-[52ch] break-keep">
-          기획부터 촬영, 편집, Meta 광고 집행까지. 영상 마케팅의 전 과정을 책임지는 방식으로 브랜드 성장을 만들어냅니다.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="#contact" class="cta-btn accent-bg text-zinc-950 font-bold text-base px-8 py-4 rounded-2xl flex items-center justify-center gap-2 min-h-[52px]">
-            지금 무료 상담하기
-            <iconify-icon icon="solar:arrow-right-linear" class="text-lg"></iconify-icon>
-          </a>
-          <a href="#portfolio" class="cta-btn glass text-white font-semibold text-base px-8 py-4 rounded-2xl flex items-center justify-center gap-2 min-h-[52px] hover:border-white/20 transition-all duration-300">
-            포트폴리오 보기
-          </a>
-        </div>
-        <!-- Mini trust -->
-        <div class="flex items-center gap-6 pt-2">
-          <div class="flex -space-x-2">
-            <img src="https://i.pravatar.cc/40?u=yunha" class="w-9 h-9 rounded-full border-2 border-zinc-900 object-cover" loading="lazy" decoding="async" alt="">
-            <img src="https://i.pravatar.cc/40?u=junho" class="w-9 h-9 rounded-full border-2 border-zinc-900 object-cover" loading="lazy" decoding="async" alt="">
-            <img src="https://i.pravatar.cc/40?u=soyeon" class="w-9 h-9 rounded-full border-2 border-zinc-900 object-cover" loading="lazy" decoding="async" alt="">
+  <!-- ===== HERO (Scroll Scrub) ===== -->
+  <!-- 스크롤 높이: 300vh → 이 구간 동안 영상이 재생됨 -->
+  <div id="hero-scroll-container" style="height: 300vh; position: relative;">
+    <section id="hero-sticky" class="mesh-bg" style="position: sticky; top: 0; min-height: 100dvh; display: flex; align-items: center; padding: 6rem 1rem 4rem;">
+      <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+        <!-- Left: Text -->
+        <div class="space-y-8" style="animation: fadeInUp 0.8s ease forwards;">
+          <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-xs text-zinc-400">
+            <span class="w-1.5 h-1.5 rounded-full accent-bg inline-block animate-pulse"></span>
+            현재 3개사 클라이언트 운영 중
           </div>
-          <div>
-            <div class="flex items-center gap-1">
-              <iconify-icon icon="solar:star-bold" class="text-accent-text text-sm" style="color:#E8FF47"></iconify-icon>
-              <iconify-icon icon="solar:star-bold" class="text-sm" style="color:#E8FF47"></iconify-icon>
-              <iconify-icon icon="solar:star-bold" class="text-sm" style="color:#E8FF47"></iconify-icon>
-              <iconify-icon icon="solar:star-bold" class="text-sm" style="color:#E8FF47"></iconify-icon>
-              <iconify-icon icon="solar:star-bold" class="text-sm" style="color:#E8FF47"></iconify-icon>
-              <span class="text-zinc-300 text-sm font-semibold ml-1">4.9</span>
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight break-keep">
+            <span class="gradient-text">브랜드를 <br>움직이는</span>
+            <br>
+            <span class="accent-text">숏폼</span> 마케팅
+          </h1>
+          <p class="text-zinc-400 text-lg leading-relaxed max-w-[52ch] break-keep">
+            기획부터 촬영, 편집, Meta 광고 집행까지. 영상 마케팅의 전 과정을 책임지는 방식으로 브랜드 성장을 만들어냅니다.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#contact" class="cta-btn accent-bg text-zinc-950 font-bold text-base px-8 py-4 rounded-2xl flex items-center justify-center gap-2 min-h-[52px]">
+              지금 무료 상담하기
+              <iconify-icon icon="solar:arrow-right-linear" class="text-lg"></iconify-icon>
+            </a>
+            <a href="#portfolio" class="cta-btn glass text-white font-semibold text-base px-8 py-4 rounded-2xl flex items-center justify-center gap-2 min-h-[52px] hover:border-white/20 transition-all duration-300">
+              포트폴리오 보기
+            </a>
+          </div>
+          <!-- Mini trust -->
+          <div class="flex items-center gap-6 pt-2">
+            <div class="flex -space-x-2">
+              <img src="https://i.pravatar.cc/40?u=yunha" class="w-9 h-9 rounded-full border-2 border-zinc-900 object-cover" loading="lazy" decoding="async" alt="">
+              <img src="https://i.pravatar.cc/40?u=junho" class="w-9 h-9 rounded-full border-2 border-zinc-900 object-cover" loading="lazy" decoding="async" alt="">
+              <img src="https://i.pravatar.cc/40?u=soyeon" class="w-9 h-9 rounded-full border-2 border-zinc-900 object-cover" loading="lazy" decoding="async" alt="">
             </div>
-            <p class="text-zinc-500 text-xs mt-0.5">클라이언트 만족도</p>
+            <div>
+              <div class="flex items-center gap-1">
+                <iconify-icon icon="solar:star-bold" style="color:#E8FF47"></iconify-icon>
+                <iconify-icon icon="solar:star-bold" style="color:#E8FF47"></iconify-icon>
+                <iconify-icon icon="solar:star-bold" style="color:#E8FF47"></iconify-icon>
+                <iconify-icon icon="solar:star-bold" style="color:#E8FF47"></iconify-icon>
+                <iconify-icon icon="solar:star-bold" style="color:#E8FF47"></iconify-icon>
+                <span class="text-zinc-300 text-sm font-semibold ml-1">4.9</span>
+              </div>
+              <p class="text-zinc-500 text-xs mt-0.5">클라이언트 만족도</p>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- Right: Visual -->
-      <div class="relative hidden md:block" style="animation: fadeInUp 1s ease 0.15s forwards; opacity:0;">
-        <div class="relative animate-float">
-          <div class="double-bezel relative rounded-3xl overflow-hidden" style="aspect-ratio:9/16; max-height:540px;">
-            <img src="https://picsum.photos/seed/shortform_video/540/960" class="w-full h-full object-cover" loading="lazy" decoding="async" alt="숏폼 영상 제작 포트폴리오">
-            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent"></div>
-            <div class="absolute bottom-6 left-6 right-6">
-              <p class="text-xs text-zinc-400 mb-1">최근 프로젝트</p>
-              <p class="font-semibold text-white break-keep">바우크래프트 — 아나톨리아 타일 브랜드 영상</p>
-              <div class="flex items-center gap-4 mt-2 text-xs text-zinc-400">
-                <span class="flex items-center gap-1">
-                  <iconify-icon icon="solar:eye-linear"></iconify-icon> 12.4만 도달
-                </span>
-                <span class="flex items-center gap-1">
-                  <iconify-icon icon="solar:chart-2-linear"></iconify-icon> ROAS 4.2
-                </span>
+
+        <!-- Right: Scroll-Scrub Video -->
+        <div class="relative hidden md:block" style="animation: fadeInUp 1s ease 0.15s forwards; opacity:0;">
+          <div class="relative">
+            <div class="double-bezel relative rounded-3xl overflow-hidden" style="aspect-ratio:9/16; max-height:560px;">
+              <video
+                id="hero-video"
+                src="ejefilm.mp4"
+                muted
+                playsinline
+                preload="auto"
+                class="w-full h-full object-cover"
+                style="display:block;"
+              ></video>
+              <!-- 스크롤 진행 바 -->
+              <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-zinc-800/60">
+                <div id="video-progress-bar" class="h-full accent-bg transition-none" style="width:0%"></div>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/70 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-6 left-6 right-6">
+                <p class="text-xs text-zinc-400 mb-1">최근 프로젝트</p>
+                <p class="font-semibold text-white break-keep">EJE Film 쇼릴</p>
+                <div class="flex items-center gap-3 mt-2">
+                  <div id="scroll-hint" class="flex items-center gap-1.5 text-xs text-zinc-400">
+                    <iconify-icon icon="solar:mouse-linear" class="text-base"></iconify-icon>
+                    스크롤로 영상 조작
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+          <!-- Floating cards -->
+          <div class="glass absolute -left-8 top-16 rounded-2xl p-4 w-44 hidden lg:block" style="animation: float 7s ease-in-out 1s infinite;">
+            <p class="text-xs text-zinc-500 mb-1">이번 달 도달</p>
+            <p class="text-2xl font-bold text-white">83<span class="text-zinc-400 text-base font-normal">만+</span></p>
+            <p class="text-xs text-zinc-500 mt-0.5">전월 대비 +31%</p>
+          </div>
+          <div class="glass absolute -right-6 bottom-24 rounded-2xl p-4 w-40 hidden lg:block" style="animation: float 8s ease-in-out 2s infinite;">
+            <p class="text-xs text-zinc-500 mb-1">평균 ROAS</p>
+            <p class="text-2xl font-bold accent-text">4.7<span class="text-zinc-400 text-base font-normal">x</span></p>
+            <p class="text-xs text-zinc-500 mt-0.5">Meta 광고 기준</p>
+          </div>
         </div>
-        <!-- Floating cards -->
-        <div class="glass absolute -left-8 top-16 rounded-2xl p-4 w-44 hidden lg:block" style="animation: float 7s ease-in-out 1s infinite;">
-          <p class="text-xs text-zinc-500 mb-1">이번 달 도달</p>
-          <p class="text-2xl font-bold text-white">83<span class="text-zinc-400 text-base font-normal">만+</span></p>
-          <p class="text-xs text-zinc-500 mt-0.5">전월 대비 +31%</p>
-        </div>
-        <div class="glass absolute -right-6 bottom-24 rounded-2xl p-4 w-40 hidden lg:block" style="animation: float 8s ease-in-out 2s infinite;">
-          <p class="text-xs text-zinc-500 mb-1">평균 ROAS</p>
-          <p class="text-2xl font-bold accent-text">4.7<span class="text-zinc-400 text-base font-normal">x</span></p>
-          <p class="text-xs text-zinc-500 mt-0.5">Meta 광고 기준</p>
-        </div>
+
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
   <!-- ===== CLIENT MARQUEE ===== -->
   <section class="py-10 border-y border-zinc-800/60 overflow-hidden">
@@ -734,6 +750,55 @@
       btn.textContent = '전송 완료! 곧 연락드릴게요';
       btn.disabled = true;
       btn.style.opacity = '0.7';
+    }
+
+    // ===== SCROLL SCRUB VIDEO =====
+    const video = document.getElementById('hero-video');
+    const scrollContainer = document.getElementById('hero-scroll-container');
+    const progressBar = document.getElementById('video-progress-bar');
+    const scrollHint = document.getElementById('scroll-hint');
+
+    if (video && scrollContainer) {
+      // 영상 로드 후 첫 프레임 표시
+      video.addEventListener('loadedmetadata', () => {
+        video.currentTime = 0;
+      });
+
+      let ticking = false;
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const rect = scrollContainer.getBoundingClientRect();
+            const containerHeight = scrollContainer.offsetHeight;
+            const viewportHeight = window.innerHeight;
+
+            // 스크롤 진행률 계산 (0 ~ 1)
+            // rect.top이 0일 때 시작, -(containerHeight - viewportHeight)일 때 끝
+            const scrolled = -rect.top;
+            const scrollable = containerHeight - viewportHeight;
+            const progress = Math.min(Math.max(scrolled / scrollable, 0), 1);
+
+            // 영상 currentTime 동기화
+            if (video.duration && isFinite(video.duration)) {
+              video.currentTime = progress * video.duration;
+            }
+
+            // 진행 바 업데이트
+            if (progressBar) {
+              progressBar.style.width = (progress * 100) + '%';
+            }
+
+            // 스크롤 힌트 페이드아웃
+            if (scrollHint && progress > 0.05) {
+              scrollHint.style.opacity = Math.max(0, 1 - progress * 10).toString();
+            }
+
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
     }
   </script>
 
