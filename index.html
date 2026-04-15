@@ -126,11 +126,9 @@
     </div>
   </nav>
 
-  <!-- ===== HERO (Scroll Scrub) ===== -->
-  <!-- 스크롤 높이: 300vh → 이 구간 동안 영상이 재생됨 -->
-  <div id="hero-scroll-container" style="height: 300vh; position: relative;">
-    <section id="hero-sticky" class="mesh-bg" style="position: sticky; top: 0; min-height: 100dvh; display: flex; align-items: center; padding: 6rem 1rem 4rem;">
-      <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+  <!-- ===== HERO ===== -->
+  <section class="min-h-[100dvh] mesh-bg flex items-center pt-24 pb-16 px-4">
+    <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
 
         <!-- Left: Text -->
         <div class="space-y-8" style="animation: fadeInUp 0.8s ease forwards;">
@@ -176,52 +174,77 @@
           </div>
         </div>
 
-        <!-- Right: Scroll-Scrub Video -->
+        <!-- Right: Portfolio Mockup -->
         <div class="relative hidden md:block" style="animation: fadeInUp 1s ease 0.15s forwards; opacity:0;">
-          <div class="relative">
-            <div class="double-bezel relative rounded-3xl overflow-hidden" style="aspect-ratio:9/16; max-height:560px;">
-              <video
-                id="hero-video"
-                src="ejefilm.mp4"
-                muted
-                playsinline
-                preload="auto"
-                class="w-full h-full object-cover"
-                style="display:block;"
-              ></video>
-              <!-- 스크롤 진행 바 -->
-              <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-zinc-800/60">
-                <div id="video-progress-bar" class="h-full accent-bg transition-none" style="width:0%"></div>
-              </div>
-              <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/70 via-transparent to-transparent pointer-events-none"></div>
-              <div class="absolute bottom-6 left-6 right-6">
-                <p class="text-xs text-zinc-400 mb-1">최근 프로젝트</p>
-                <p class="font-semibold text-white break-keep">EJE Film 쇼릴</p>
-                <div class="flex items-center gap-3 mt-2">
-                  <div id="scroll-hint" class="flex items-center gap-1.5 text-xs text-zinc-400">
-                    <iconify-icon icon="solar:mouse-linear" class="text-base"></iconify-icon>
-                    스크롤로 영상 조작
-                  </div>
+          <div class="relative" style="height: 560px;">
+
+            <!-- 뒤 카드 (왼쪽) -->
+            <div class="double-bezel absolute rounded-3xl overflow-hidden" style="width:220px; aspect-ratio:9/16; left:0; top:40px; transform:rotate(-6deg); z-index:1;">
+              <img src="https://picsum.photos/seed/mockup_back/400/711" class="w-full h-full object-cover" loading="lazy" decoding="async" alt="">
+              <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(9,9,11,0.85) 0%, transparent 60%);"></div>
+              <div class="absolute bottom-5 left-5">
+                <p class="text-white text-xs font-semibold break-keep">소리를디자인하다</p>
+                <div class="flex items-center gap-1 mt-1">
+                  <iconify-icon icon="solar:instagram-linear" class="text-xs text-zinc-400"></iconify-icon>
+                  <span class="text-zinc-400 text-xs">릴스</span>
                 </div>
               </div>
             </div>
-          </div>
-          <!-- Floating cards -->
-          <div class="glass absolute -left-8 top-16 rounded-2xl p-4 w-44 hidden lg:block" style="animation: float 7s ease-in-out 1s infinite;">
-            <p class="text-xs text-zinc-500 mb-1">이번 달 도달</p>
-            <p class="text-2xl font-bold text-white">83<span class="text-zinc-400 text-base font-normal">만+</span></p>
-            <p class="text-xs text-zinc-500 mt-0.5">전월 대비 +31%</p>
-          </div>
-          <div class="glass absolute -right-6 bottom-24 rounded-2xl p-4 w-40 hidden lg:block" style="animation: float 8s ease-in-out 2s infinite;">
-            <p class="text-xs text-zinc-500 mb-1">평균 ROAS</p>
-            <p class="text-2xl font-bold accent-text">4.7<span class="text-zinc-400 text-base font-normal">x</span></p>
-            <p class="text-xs text-zinc-500 mt-0.5">Meta 광고 기준</p>
+
+            <!-- 뒤 카드 (오른쪽) -->
+            <div class="double-bezel absolute rounded-3xl overflow-hidden" style="width:220px; aspect-ratio:9/16; right:0; top:60px; transform:rotate(5deg); z-index:1;">
+              <img src="https://picsum.photos/seed/mockup_right/400/711" class="w-full h-full object-cover" loading="lazy" decoding="async" alt="">
+              <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(9,9,11,0.85) 0%, transparent 60%);"></div>
+              <div class="absolute bottom-5 left-5">
+                <p class="text-white text-xs font-semibold break-keep">제이엠몬도</p>
+                <div class="flex items-center gap-1 mt-1">
+                  <iconify-icon icon="solar:instagram-linear" class="text-xs text-zinc-400"></iconify-icon>
+                  <span class="text-zinc-400 text-xs">릴스</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 앞 카드 (메인) -->
+            <div class="double-bezel absolute rounded-3xl overflow-hidden animate-float" style="width:240px; aspect-ratio:9/16; left:50%; top:10px; transform:translateX(-50%); z-index:2;">
+              <img src="https://picsum.photos/seed/mockup_front/400/711" class="w-full h-full object-cover" loading="lazy" decoding="async" alt="">
+              <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(9,9,11,0.9) 0%, transparent 50%);"></div>
+              <!-- 재생 버튼 오버레이 -->
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center" style="background: rgba(232,255,71,0.15); border: 1px solid rgba(232,255,71,0.3); backdrop-filter: blur(8px);">
+                  <iconify-icon icon="solar:play-bold" class="text-3xl" style="color:#E8FF47; margin-left:3px;"></iconify-icon>
+                </div>
+              </div>
+              <div class="absolute bottom-6 left-5 right-5">
+                <p class="text-white text-sm font-semibold break-keep">바우크래프트</p>
+                <p class="text-zinc-400 text-xs mt-0.5">브랜드 릴스</p>
+                <div class="flex items-center gap-3 mt-2 text-xs text-zinc-400">
+                  <span class="flex items-center gap-1">
+                    <iconify-icon icon="solar:eye-linear"></iconify-icon> 12.4만
+                  </span>
+                  <span class="flex items-center gap-1">
+                    <iconify-icon icon="solar:chart-2-linear"></iconify-icon> ROAS 4.2
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 플로팅 성과 카드 -->
+            <div class="glass absolute rounded-2xl p-4 w-44 hidden lg:block" style="left:-20px; bottom:60px; z-index:3; animation: float 7s ease-in-out 1s infinite;">
+              <p class="text-xs text-zinc-500 mb-1">이번 달 도달</p>
+              <p class="text-2xl font-bold text-white">83<span class="text-zinc-400 text-base font-normal">만+</span></p>
+              <p class="text-xs text-zinc-500 mt-0.5">전월 대비 +31%</p>
+            </div>
+            <div class="glass absolute rounded-2xl p-4 w-40 hidden lg:block" style="right:-10px; bottom:80px; z-index:3; animation: float 8s ease-in-out 2s infinite;">
+              <p class="text-xs text-zinc-500 mb-1">평균 ROAS</p>
+              <p class="text-2xl font-bold accent-text">4.7<span class="text-zinc-400 text-base font-normal">x</span></p>
+              <p class="text-xs text-zinc-500 mt-0.5">Meta 광고 기준</p>
+            </div>
+
           </div>
         </div>
 
       </div>
-    </section>
-  </div>
+  </section>
 
   <!-- ===== CLIENT MARQUEE ===== -->
   <section class="py-10 border-y border-zinc-800/60 overflow-hidden">
