@@ -448,49 +448,268 @@
             실제로 만든 <span class="accent-text">결과물</span>
           </h2>
         </div>
-        <p class="text-zinc-500 text-sm max-w-[42ch] break-keep">모든 영상은 EJE Film이 직접 기획, 촬영, 편집했으며 클라이언트의 비즈니스 목표에 맞게 제작되었습니다.</p>
+        <p class="text-zinc-500 text-sm max-w-[42ch] break-keep">클릭하면 실제 영상으로 이동합니다.</p>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 reveal">
-        <!-- Portfolio items -->
-        <div class="double-bezel relative rounded-2xl overflow-hidden group cursor-pointer" style="aspect-ratio:9/16;">
-          <img src="https://picsum.photos/seed/portfolio1/400/711" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async" alt="">
-          <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-            <div>
-              <p class="text-white font-semibold text-sm break-keep">바우크래프트</p>
-              <p class="text-zinc-400 text-xs">브랜드 릴스</p>
-            </div>
-          </div>
-        </div>
-        <div class="double-bezel relative rounded-2xl overflow-hidden group cursor-pointer" style="aspect-ratio:9/16;">
-          <img src="https://picsum.photos/seed/portfolio2/400/711" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async" alt="">
-          <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-            <div>
-              <p class="text-white font-semibold text-sm break-keep">소리를디자인하다</p>
-              <p class="text-zinc-400 text-xs">제품 소개</p>
-            </div>
-          </div>
-        </div>
-        <div class="double-bezel relative rounded-2xl overflow-hidden group cursor-pointer" style="aspect-ratio:9/16;">
-          <img src="https://picsum.photos/seed/portfolio3/400/711" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async" alt="">
-          <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-            <div>
-              <p class="text-white font-semibold text-sm break-keep">제이엠몬도</p>
-              <p class="text-zinc-400 text-xs">서비스 영상</p>
-            </div>
-          </div>
-        </div>
-        <div class="double-bezel relative rounded-2xl overflow-hidden group cursor-pointer" style="aspect-ratio:9/16;">
-          <img src="https://picsum.photos/seed/portfolio4/400/711" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async" alt="">
-          <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-            <div>
-              <p class="text-white font-semibold text-sm break-keep">아나톨리아</p>
-              <p class="text-zinc-400 text-xs">쇼룸 투어</p>
-            </div>
-          </div>
-        </div>
+ 
+      <!-- 필터 탭 -->
+      <div class="flex flex-wrap gap-2 mb-8 reveal">
+        <button onclick="filterPortfolio('all')" class="filter-btn active-filter glass text-sm text-white rounded-full px-4 py-2 transition-all duration-200" data-filter="all">전체</button>
+        <button onclick="filterPortfolio('baucraft')" class="filter-btn glass text-sm text-zinc-400 rounded-full px-4 py-2 transition-all duration-200" data-filter="baucraft">바우크래프트</button>
+        <button onclick="filterPortfolio('sound')" class="filter-btn glass text-sm text-zinc-400 rounded-full px-4 py-2 transition-all duration-200" data-filter="sound">소리를디자인하다</button>
+        <button onclick="filterPortfolio('jmmondo')" class="filter-btn glass text-sm text-zinc-400 rounded-full px-4 py-2 transition-all duration-200" data-filter="jmmondo">제이엠몬도</button>
+        <button onclick="filterPortfolio('others')" class="filter-btn glass text-sm text-zinc-400 rounded-full px-4 py-2 transition-all duration-200" data-filter="others">기타 클라이언트</button>
       </div>
-      <div class="text-center mt-10 reveal">
-        <p class="text-zinc-500 text-sm">더 많은 포트폴리오는 상담 시 공유드립니다</p>
+ 
+      <!-- 포트폴리오 그리드 -->
+      <div id="portfolio-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 reveal">
+ 
+        <!-- 바우크래프트 -->
+        <a href="https://www.instagram.com/reel/C58WSbAS3PX/?igsh=MWE1d2FoaXlzbjc1MQ==" target="_blank" class="portfolio-card group" data-client="baucraft" style="aspect-ratio:9/16; display:block; position:relative;">
+          <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
+            <div class="w-full h-full flex flex-col items-center justify-center gap-3 p-4 group-hover:bg-white/5 transition-all duration-300">
+              <div class="w-14 h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style="background: rgba(232,255,71,0.1); border: 1px solid rgba(232,255,71,0.2);">
+                <iconify-icon icon="solar:play-bold" class="text-2xl" style="color:#E8FF47; margin-left:3px;"></iconify-icon>
+              </div>
+              <div class="text-center">
+                <p class="text-white font-semibold text-sm break-keep">바우크래프트</p>
+                <p class="text-zinc-500 text-xs mt-0.5">브랜드 릴스</p>
+              </div>
+              <div class="flex items-center gap-1.5 glass rounded-full px-2.5 py-1">
+                <iconify-icon icon="solar:instagram-linear" class="text-sm text-zinc-400"></iconify-icon>
+                <span class="text-zinc-400 text-xs">Instagram</span>
+              </div>
+            </div>
+          </div>
+        </a>
+ 
+        <!-- 소리를디자인하다 1 -->
+        <a href="https://www.instagram.com/reel/DTCc-BvkW5K/?igsh=YnlhYXloYndkMnF4" target="_blank" class="portfolio-card group" data-client="sound" style="aspect-ratio:9/16; display:block; position:relative;">
+          <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
+            <div class="w-full h-full flex flex-col items-center justify-center gap-3 p-4 group-hover:bg-white/5 transition-all duration-300">
+              <div class="w-14 h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style="background: rgba(232,255,71,0.1); border: 1px solid rgba(232,255,71,0.2);">
+                <iconify-icon icon="solar:play-bold" class="text-2xl" style="color:#E8FF47; margin-left:3px;"></iconify-icon>
+              </div>
+              <div class="text-center">
+                <p class="text-white font-semibold text-sm break-keep">소리를디자인하다</p>
+                <p class="text-zinc-500 text-xs mt-0.5">제품 소개 ①</p>
+              </div>
+              <div class="flex items-center gap-1.5 glass rounded-full px-2.5 py-1">
+                <iconify-icon icon="solar:instagram-linear" class="text-sm text-zinc-400"></iconify-icon>
+                <span class="text-zinc-400 text-xs">Instagram</span>
+              </div>
+            </div>
+          </div>
+        </a>
+ 
+        <!-- 소리를디자인하다 2 -->
+        <a href="https://www.instagram.com/reel/DSjagbckTcR/?igsh=MWFtNWxqamR4NDhiaA==" target="_blank" class="portfolio-card group" data-client="sound" style="aspect-ratio:9/16; display:block; position:relative;">
+          <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
+            <div class="w-full h-full flex flex-col items-center justify-center gap-3 p-4 group-hover:bg-white/5 transition-all duration-300">
+              <div class="w-14 h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style="background: rgba(232,255,71,0.1); border: 1px solid rgba(232,255,71,0.2);">
+                <iconify-icon icon="solar:play-bold" class="text-2xl" style="color:#E8FF47; margin-left:3px;"></iconify-icon>
+              </div>
+              <div class="text-center">
+                <p class="text-white font-semibold text-sm break-keep">소리를디자인하다</p>
+                <p class="text-zinc-500 text-xs mt-0.5">제품 소개 ②</p>
+              </div>
+              <div class="flex items-center gap-1.5 glass rounded-full px-2.5 py-1">
+                <iconify-icon icon="solar:instagram-linear" class="text-sm text-zinc-400"></iconify-icon>
+                <span class="text-zinc-400 text-xs">Instagram</span>
+              </div>
+            </div>
+          </div>
+        </a>
+ 
+        <!-- 소리를디자인하다 3 -->
+        <a href="https://www.instagram.com/reel/DSbSyLKk9rj/?igsh=MWtzeTdzcnRpb2ZyYg==" target="_blank" class="portfolio-card group" data-client="sound" style="aspect-ratio:9/16; display:block; position:relative;">
+          <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
+            <div class="w-full h-full flex flex-col items-center justify-center gap-3 p-4 group-hover:bg-white/5 transition-all duration-300">
+              <div class="w-14 h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style="background: rgba(232,255,71,0.1); border: 1px solid rgba(232,255,71,0.2);">
+                <iconify-icon icon="solar:play-bold" class="text-2xl" style="color:#E8FF47; margin-left:3px;"></iconify-icon>
+              </div>
+              <div class="text-center">
+                <p class="text-white font-semibold text-sm break-keep">소리를디자인하다</p>
+                <p class="text-zinc-500 text-xs mt-0.5">제품 소개 ③</p>
+              </div>
+              <div class="flex items-center gap-1.5 glass rounded-full px-2.5 py-1">
+                <iconify-icon icon="solar:instagram-linear" class="text-sm text-zinc-400"></iconify-icon>
+                <span class="text-zinc-400 text-xs">Instagram</span>
+              </div>
+            </div>
+          </div>
+        </a>
+ 
+        <!-- 제이엠몬도 1 -->
+        <a href="https://www.instagram.com/reel/C11hYS2vdAb/?igsh=MWs3ZjZqYnB3NWJqcg==" target="_blank" class="portfolio-card group" data-client="jmmondo" style="aspect-ratio:9/16; display:block; position:relative;">
+          <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
+            <div class="w-full h-full flex flex-col items-center justify-center gap-3 p-4 group-hover:bg-white/5 transition-all duration-300">
+              <div class="w-14 h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style="background: rgba(232,255,71,0.1); border: 1px solid rgba(232,255,71,0.2);">
+                <iconify-icon icon="solar:play-bold" class="text-2xl" style="color:#E8FF47; margin-left:3px;"></iconify-icon>
+              </div>
+              <div class="text-center">
+                <p class="text-white font-semibold text-sm break-keep">제이엠몬도</p>
+                <p class="text-zinc-500 text-xs mt-0.5">병원 인테리어 ①</p>
+              </div>
+              <div class="flex items-center gap-1.5 glass rounded-full px-2.5 py-1">
+                <iconify-icon icon="solar:instagram-linear" class="text-sm text-zinc-400"></iconify-icon>
+                <span class="text-zinc-400 text-xs">Instagram</span>
+              </div>
+            </div>
+          </div>
+        </a>
+ 
+        <!-- 제이엠몬도 2 -->
+        <a href="https://www.instagram.com/reel/C7LRgInPRLC/?igsh=MXc0eWtuNTk0bTdieQ==" target="_blank" class="portfolio-card group" data-client="jmmondo" style="aspect-ratio:9/16; display:block; position:relative;">
+          <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
+            <div class="w-full h-full flex flex-col items-center justify-center gap-3 p-4 group-hover:bg-white/5 transition-all duration-300">
+              <div class="w-14 h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style="background: rgba(232,255,71,0.1); border: 1px solid rgba(232,255,71,0.2);">
+                <iconify-icon icon="solar:play-bold" class="text-2xl" style="color:#E8FF47; margin-left:3px;"></iconify-icon>
+              </div>
+              <div class="text-center">
+                <p class="text-white font-semibold text-sm break-keep">제이엠몬도</p>
+                <p class="text-zinc-500 text-xs mt-0.5">병원 인테리어 ②</p>
+              </div>
+              <div class="flex items-center gap-1.5 glass rounded-full px-2.5 py-1">
+                <iconify-icon icon="solar:instagram-linear" class="text-sm text-zinc-400"></iconify-icon>
+                <span class="text-zinc-400 text-xs">Instagram</span>
+              </div>
+            </div>
+          </div>
+        </a>
+ 
+        <!-- 톤핏선 1 -->
+        <a href="https://www.instagram.com/reel/C1osIJML2Ju/?igsh=MXQzbmgzZWV0eXFtbA==" target="_blank" class="portfolio-card group" data-client="others" style="aspect-ratio:9/16; display:block; position:relative;">
+          <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
+            <div class="w-full h-full flex flex-col items-center justify-center gap-3 p-4 group-hover:bg-white/5 transition-all duration-300">
+              <div class="w-14 h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style="background: rgba(232,255,71,0.1); border: 1px solid rgba(232,255,71,0.2);">
+                <iconify-icon icon="solar:play-bold" class="text-2xl" style="color:#E8FF47; margin-left:3px;"></iconify-icon>
+              </div>
+              <div class="text-center">
+                <p class="text-white font-semibold text-sm break-keep">톤핏선</p>
+                <p class="text-zinc-500 text-xs mt-0.5">브랜드 릴스 ①</p>
+              </div>
+              <div class="flex items-center gap-1.5 glass rounded-full px-2.5 py-1">
+                <iconify-icon icon="solar:instagram-linear" class="text-sm text-zinc-400"></iconify-icon>
+                <span class="text-zinc-400 text-xs">Instagram</span>
+              </div>
+            </div>
+          </div>
+        </a>
+ 
+        <!-- 톤핏선 2 -->
+        <a href="https://www.instagram.com/reel/C88wFrRpR_h/?igsh=MTNuYzF6aWE3d21ucQ==" target="_blank" class="portfolio-card group" data-client="others" style="aspect-ratio:9/16; display:block; position:relative;">
+          <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
+            <div class="w-full h-full flex flex-col items-center justify-center gap-3 p-4 group-hover:bg-white/5 transition-all duration-300">
+              <div class="w-14 h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style="background: rgba(232,255,71,0.1); border: 1px solid rgba(232,255,71,0.2);">
+                <iconify-icon icon="solar:play-bold" class="text-2xl" style="color:#E8FF47; margin-left:3px;"></iconify-icon>
+              </div>
+              <div class="text-center">
+                <p class="text-white font-semibold text-sm break-keep">톤핏선</p>
+                <p class="text-zinc-500 text-xs mt-0.5">브랜드 릴스 ②</p>
+              </div>
+              <div class="flex items-center gap-1.5 glass rounded-full px-2.5 py-1">
+                <iconify-icon icon="solar:instagram-linear" class="text-sm text-zinc-400"></iconify-icon>
+                <span class="text-zinc-400 text-xs">Instagram</span>
+              </div>
+            </div>
+          </div>
+        </a>
+ 
+        <!-- 오어스 1 -->
+        <a href="https://www.instagram.com/reel/DGC6tDGPyKK/?igsh=cjZpbWUwMG1yam9j" target="_blank" class="portfolio-card group" data-client="others" style="aspect-ratio:9/16; display:block; position:relative;">
+          <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
+            <div class="w-full h-full flex flex-col items-center justify-center gap-3 p-4 group-hover:bg-white/5 transition-all duration-300">
+              <div class="w-14 h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style="background: rgba(232,255,71,0.1); border: 1px solid rgba(232,255,71,0.2);">
+                <iconify-icon icon="solar:play-bold" class="text-2xl" style="color:#E8FF47; margin-left:3px;"></iconify-icon>
+              </div>
+              <div class="text-center">
+                <p class="text-white font-semibold text-sm break-keep">오어스</p>
+                <p class="text-zinc-500 text-xs mt-0.5">브랜드 릴스 ①</p>
+              </div>
+              <div class="flex items-center gap-1.5 glass rounded-full px-2.5 py-1">
+                <iconify-icon icon="solar:instagram-linear" class="text-sm text-zinc-400"></iconify-icon>
+                <span class="text-zinc-400 text-xs">Instagram</span>
+              </div>
+            </div>
+          </div>
+        </a>
+ 
+        <!-- 오어스 2 -->
+        <a href="https://www.instagram.com/reel/DGUYb_iPF9S/?igsh=OWxka2N0a3plMXd3" target="_blank" class="portfolio-card group" data-client="others" style="aspect-ratio:9/16; display:block; position:relative;">
+          <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
+            <div class="w-full h-full flex flex-col items-center justify-center gap-3 p-4 group-hover:bg-white/5 transition-all duration-300">
+              <div class="w-14 h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style="background: rgba(232,255,71,0.1); border: 1px solid rgba(232,255,71,0.2);">
+                <iconify-icon icon="solar:play-bold" class="text-2xl" style="color:#E8FF47; margin-left:3px;"></iconify-icon>
+              </div>
+              <div class="text-center">
+                <p class="text-white font-semibold text-sm break-keep">오어스</p>
+                <p class="text-zinc-500 text-xs mt-0.5">브랜드 릴스 ②</p>
+              </div>
+              <div class="flex items-center gap-1.5 glass rounded-full px-2.5 py-1">
+                <iconify-icon icon="solar:instagram-linear" class="text-sm text-zinc-400"></iconify-icon>
+                <span class="text-zinc-400 text-xs">Instagram</span>
+              </div>
+            </div>
+          </div>
+        </a>
+ 
+        <!-- 리에스피엔 1 -->
+        <a href="https://www.instagram.com/reel/DOUIJZmE6M9/?igsh=MW1rYTl6MHVrNmQ0Yg==" target="_blank" class="portfolio-card group" data-client="others" style="aspect-ratio:9/16; display:block; position:relative;">
+          <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
+            <div class="w-full h-full flex flex-col items-center justify-center gap-3 p-4 group-hover:bg-white/5 transition-all duration-300">
+              <div class="w-14 h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style="background: rgba(232,255,71,0.1); border: 1px solid rgba(232,255,71,0.2);">
+                <iconify-icon icon="solar:play-bold" class="text-2xl" style="color:#E8FF47; margin-left:3px;"></iconify-icon>
+              </div>
+              <div class="text-center">
+                <p class="text-white font-semibold text-sm break-keep">리에스피엔</p>
+                <p class="text-zinc-500 text-xs mt-0.5">브랜드 릴스 ①</p>
+              </div>
+              <div class="flex items-center gap-1.5 glass rounded-full px-2.5 py-1">
+                <iconify-icon icon="solar:instagram-linear" class="text-sm text-zinc-400"></iconify-icon>
+                <span class="text-zinc-400 text-xs">Instagram</span>
+              </div>
+            </div>
+          </div>
+        </a>
+ 
+        <!-- 리에스피엔 2 -->
+        <a href="https://www.instagram.com/reel/DKcP1OwpqXJ/?igsh=MWdramZkbXNreXRpbg==" target="_blank" class="portfolio-card group" data-client="others" style="aspect-ratio:9/16; display:block; position:relative;">
+          <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
+            <div class="w-full h-full flex flex-col items-center justify-center gap-3 p-4 group-hover:bg-white/5 transition-all duration-300">
+              <div class="w-14 h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style="background: rgba(232,255,71,0.1); border: 1px solid rgba(232,255,71,0.2);">
+                <iconify-icon icon="solar:play-bold" class="text-2xl" style="color:#E8FF47; margin-left:3px;"></iconify-icon>
+              </div>
+              <div class="text-center">
+                <p class="text-white font-semibold text-sm break-keep">리에스피엔</p>
+                <p class="text-zinc-500 text-xs mt-0.5">브랜드 릴스 ②</p>
+              </div>
+              <div class="flex items-center gap-1.5 glass rounded-full px-2.5 py-1">
+                <iconify-icon icon="solar:instagram-linear" class="text-sm text-zinc-400"></iconify-icon>
+                <span class="text-zinc-400 text-xs">Instagram</span>
+              </div>
+            </div>
+          </div>
+        </a>
+ 
+        <!-- 휘바덴트 (YouTube) -->
+        <a href="https://youtu.be/7Rj5SOcU58Q?si=R_CwO5YuPZZpaioX" target="_blank" class="portfolio-card group" data-client="others" style="aspect-ratio:9/16; display:block; position:relative;">
+          <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
+            <div class="w-full h-full flex flex-col items-center justify-center gap-3 p-4 group-hover:bg-white/5 transition-all duration-300">
+              <div class="w-14 h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style="background: rgba(232,255,71,0.1); border: 1px solid rgba(232,255,71,0.2);">
+                <iconify-icon icon="solar:play-bold" class="text-2xl" style="color:#E8FF47; margin-left:3px;"></iconify-icon>
+              </div>
+              <div class="text-center">
+                <p class="text-white font-semibold text-sm break-keep">휘바덴트</p>
+                <p class="text-zinc-500 text-xs mt-0.5">인터뷰 영상</p>
+              </div>
+              <div class="flex items-center gap-1.5 glass rounded-full px-2.5 py-1">
+                <iconify-icon icon="solar:youtube-linear" class="text-sm text-zinc-400"></iconify-icon>
+                <span class="text-zinc-400 text-xs">YouTube</span>
+              </div>
+            </div>
+          </div>
+        </a>
+ 
       </div>
     </div>
   </section>
@@ -753,7 +972,32 @@
       btn.style.opacity = '0.7';
     }
  
-    // ===== SCROLL SCRUB VIDEO =====
+    // ===== PORTFOLIO FILTER =====
+    function filterPortfolio(filter) {
+      const cards = document.querySelectorAll('.portfolio-card');
+      const btns = document.querySelectorAll('.filter-btn');
+ 
+      btns.forEach(btn => {
+        if (btn.dataset.filter === filter) {
+          btn.classList.add('active-filter');
+          btn.classList.remove('text-zinc-400');
+          btn.classList.add('text-white');
+        } else {
+          btn.classList.remove('active-filter');
+          btn.classList.remove('text-white');
+          btn.classList.add('text-zinc-400');
+        }
+      });
+ 
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.client === filter) {
+          card.style.display = 'block';
+          card.style.animation = 'fadeInUp 0.4s ease forwards';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
     (function() {
       const video = document.getElementById('hero-video');
       const scrollContainer = document.getElementById('hero-scroll-container');
