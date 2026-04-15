@@ -107,7 +107,7 @@
 </head>
 <body class="noise text-zinc-100" style="font-family: 'Pretendard', system-ui, sans-serif;">
 <div style="overflow-x: hidden; position: relative; width: 100%;">
- 
+
   <!-- ===== NAV ===== -->
   <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-40 w-[calc(100%-2rem)] max-w-5xl">
     <div class="glass rounded-2xl px-6 py-3 flex items-center justify-between">
@@ -125,13 +125,13 @@
       </a>
     </div>
   </nav>
- 
+
   <!-- ===== HERO (Scroll Scrub) ===== -->
   <!-- 스크롤 높이: 300vh → 이 구간 동안 영상이 재생됨 -->
   <div id="hero-scroll-container" style="height: 300vh; position: relative;">
     <section id="hero-sticky" class="mesh-bg" style="position: sticky; top: 0; min-height: 100dvh; display: flex; align-items: center; padding: 6rem 1rem 4rem;">
       <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
- 
+
         <!-- Left: Text -->
         <div class="space-y-8" style="animation: fadeInUp 0.8s ease forwards;">
           <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-xs text-zinc-400">
@@ -175,7 +175,7 @@
             </div>
           </div>
         </div>
- 
+
         <!-- Right: Scroll-Scrub Video -->
         <div class="relative hidden md:block" style="animation: fadeInUp 1s ease 0.15s forwards; opacity:0;">
           <div class="relative">
@@ -218,11 +218,11 @@
             <p class="text-xs text-zinc-500 mt-0.5">Meta 광고 기준</p>
           </div>
         </div>
- 
+
       </div>
     </section>
   </div>
- 
+
   <!-- ===== CLIENT MARQUEE ===== -->
   <section class="py-10 border-y border-zinc-800/60 overflow-hidden">
     <p class="text-center text-xs text-zinc-600 uppercase tracking-widest mb-6">함께한 브랜드</p>
@@ -250,7 +250,7 @@
       <span class="w-1 h-1 rounded-full bg-zinc-700"></span>
     </div>
   </section>
- 
+
   <!-- ===== METRICS ===== -->
   <section class="py-20 px-4">
     <div class="max-w-7xl mx-auto">
@@ -274,7 +274,7 @@
       </div>
     </div>
   </section>
- 
+
   <!-- ===== SERVICES ===== -->
   <section id="services" class="py-20 px-4">
     <div class="max-w-7xl mx-auto">
@@ -285,10 +285,10 @@
         </h2>
         <p class="text-zinc-400 mt-4 text-base leading-relaxed max-w-[52ch] break-keep">각 서비스는 브랜드 상황에 맞춰 티어를 선택하거나 조합해 구성할 수 있습니다.</p>
       </div>
- 
+
       <!-- Row 1: 메인 2개 (숏폼 + SNS) -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 reveal mb-4">
- 
+
         <!-- 숏폼 콘텐츠 제작 -->
         <div class="double-bezel relative rounded-3xl overflow-hidden group">
           <img src="https://picsum.photos/seed/shortform_edit/800/420" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" alt="숏폼 영상 제작">
@@ -326,7 +326,7 @@
             </div>
           </div>
         </div>
- 
+
         <!-- SNS 마케팅·메타 광고 -->
         <div class="double-bezel relative rounded-3xl overflow-hidden group">
           <img src="https://picsum.photos/seed/meta_ads/800/420" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" alt="SNS 마케팅">
@@ -372,10 +372,10 @@
           </div>
         </div>
       </div>
- 
+
       <!-- Row 2: 촬영 2개 -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 reveal">
- 
+
         <!-- 기업·대관 인터뷰 촬영 -->
         <div class="double-bezel relative rounded-3xl p-8 md:col-span-2">
           <div class="flex items-start justify-between mb-5">
@@ -401,7 +401,7 @@
             </div>
           </div>
         </div>
- 
+
         <!-- 음악 라이브·공연 촬영 -->
         <div class="double-bezel relative rounded-3xl p-8">
           <div class="w-12 h-12 glass rounded-2xl flex items-center justify-center mb-5">
@@ -433,11 +433,11 @@
             </div>
           </div>
         </div>
- 
+
       </div>
     </div>
   </section>
- 
+
   <!-- ===== PORTFOLIO ===== -->
   <section id="portfolio" class="py-20 px-4 bg-zinc-900/30">
     <div class="max-w-7xl mx-auto">
@@ -450,7 +450,7 @@
         </div>
         <p class="text-zinc-500 text-sm max-w-[42ch] break-keep">클릭하면 실제 영상으로 이동합니다.</p>
       </div>
- 
+
       <!-- 필터 탭 -->
       <div class="flex flex-wrap gap-2 mb-8 reveal">
         <button onclick="filterPortfolio('all')" class="filter-btn active-filter glass text-sm text-white rounded-full px-4 py-2 transition-all duration-200" data-filter="all">전체</button>
@@ -459,10 +459,10 @@
         <button onclick="filterPortfolio('jmmondo')" class="filter-btn glass text-sm text-zinc-400 rounded-full px-4 py-2 transition-all duration-200" data-filter="jmmondo">제이엠몬도</button>
         <button onclick="filterPortfolio('others')" class="filter-btn glass text-sm text-zinc-400 rounded-full px-4 py-2 transition-all duration-200" data-filter="others">기타 클라이언트</button>
       </div>
- 
+
       <!-- 포트폴리오 그리드 -->
       <div id="portfolio-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 reveal">
- 
+
         <!-- 바우크래프트 -->
         <a href="https://www.instagram.com/reel/C58WSbAS3PX/?igsh=MWE1d2FoaXlzbjc1MQ==" target="_blank" class="portfolio-card group" data-client="baucraft" style="aspect-ratio:9/16; display:block; position:relative;">
           <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
@@ -481,7 +481,7 @@
             </div>
           </div>
         </a>
- 
+
         <!-- 소리를디자인하다 1 -->
         <a href="https://www.instagram.com/reel/DTCc-BvkW5K/?igsh=YnlhYXloYndkMnF4" target="_blank" class="portfolio-card group" data-client="sound" style="aspect-ratio:9/16; display:block; position:relative;">
           <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
@@ -500,7 +500,7 @@
             </div>
           </div>
         </a>
- 
+
         <!-- 소리를디자인하다 2 -->
         <a href="https://www.instagram.com/reel/DSjagbckTcR/?igsh=MWFtNWxqamR4NDhiaA==" target="_blank" class="portfolio-card group" data-client="sound" style="aspect-ratio:9/16; display:block; position:relative;">
           <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
@@ -519,7 +519,7 @@
             </div>
           </div>
         </a>
- 
+
         <!-- 소리를디자인하다 3 -->
         <a href="https://www.instagram.com/reel/DSbSyLKk9rj/?igsh=MWtzeTdzcnRpb2ZyYg==" target="_blank" class="portfolio-card group" data-client="sound" style="aspect-ratio:9/16; display:block; position:relative;">
           <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
@@ -538,7 +538,7 @@
             </div>
           </div>
         </a>
- 
+
         <!-- 제이엠몬도 1 -->
         <a href="https://www.instagram.com/reel/C11hYS2vdAb/?igsh=MWs3ZjZqYnB3NWJqcg==" target="_blank" class="portfolio-card group" data-client="jmmondo" style="aspect-ratio:9/16; display:block; position:relative;">
           <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
@@ -557,7 +557,7 @@
             </div>
           </div>
         </a>
- 
+
         <!-- 제이엠몬도 2 -->
         <a href="https://www.instagram.com/reel/C7LRgInPRLC/?igsh=MXc0eWtuNTk0bTdieQ==" target="_blank" class="portfolio-card group" data-client="jmmondo" style="aspect-ratio:9/16; display:block; position:relative;">
           <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
@@ -576,7 +576,7 @@
             </div>
           </div>
         </a>
- 
+
         <!-- 톤핏선 1 -->
         <a href="https://www.instagram.com/reel/C1osIJML2Ju/?igsh=MXQzbmgzZWV0eXFtbA==" target="_blank" class="portfolio-card group" data-client="others" style="aspect-ratio:9/16; display:block; position:relative;">
           <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
@@ -595,7 +595,7 @@
             </div>
           </div>
         </a>
- 
+
         <!-- 톤핏선 2 -->
         <a href="https://www.instagram.com/reel/C88wFrRpR_h/?igsh=MTNuYzF6aWE3d21ucQ==" target="_blank" class="portfolio-card group" data-client="others" style="aspect-ratio:9/16; display:block; position:relative;">
           <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
@@ -614,7 +614,7 @@
             </div>
           </div>
         </a>
- 
+
         <!-- 오어스 1 -->
         <a href="https://www.instagram.com/reel/DGC6tDGPyKK/?igsh=cjZpbWUwMG1yam9j" target="_blank" class="portfolio-card group" data-client="others" style="aspect-ratio:9/16; display:block; position:relative;">
           <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
@@ -633,7 +633,7 @@
             </div>
           </div>
         </a>
- 
+
         <!-- 오어스 2 -->
         <a href="https://www.instagram.com/reel/DGUYb_iPF9S/?igsh=OWxka2N0a3plMXd3" target="_blank" class="portfolio-card group" data-client="others" style="aspect-ratio:9/16; display:block; position:relative;">
           <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
@@ -652,7 +652,7 @@
             </div>
           </div>
         </a>
- 
+
         <!-- 리에스피엔 1 -->
         <a href="https://www.instagram.com/reel/DOUIJZmE6M9/?igsh=MW1rYTl6MHVrNmQ0Yg==" target="_blank" class="portfolio-card group" data-client="others" style="aspect-ratio:9/16; display:block; position:relative;">
           <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
@@ -671,7 +671,7 @@
             </div>
           </div>
         </a>
- 
+
         <!-- 리에스피엔 2 -->
         <a href="https://www.instagram.com/reel/DKcP1OwpqXJ/?igsh=MWdramZkbXNreXRpbg==" target="_blank" class="portfolio-card group" data-client="others" style="aspect-ratio:9/16; display:block; position:relative;">
           <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
@@ -690,7 +690,7 @@
             </div>
           </div>
         </a>
- 
+
         <!-- 휘바덴트 (YouTube) -->
         <a href="https://youtu.be/7Rj5SOcU58Q?si=R_CwO5YuPZZpaioX" target="_blank" class="portfolio-card group" data-client="others" style="aspect-ratio:9/16; display:block; position:relative;">
           <div class="double-bezel w-full h-full rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
@@ -709,11 +709,11 @@
             </div>
           </div>
         </a>
- 
+
       </div>
     </div>
   </section>
- 
+
   <!-- ===== TESTIMONIALS (Masonry) ===== -->
   <section id="results" class="py-20 px-4">
     <div class="max-w-7xl mx-auto">
@@ -797,7 +797,7 @@
       </div>
     </div>
   </section>
- 
+
   <!-- ===== HOW IT WORKS ===== -->
   <section class="py-20 px-4 bg-zinc-900/30">
     <div class="max-w-7xl mx-auto">
@@ -831,7 +831,7 @@
       </div>
     </div>
   </section>
- 
+
   <!-- ===== CTA SECTION ===== -->
   <section id="contact" class="py-28 px-4">
     <div class="max-w-7xl mx-auto">
@@ -894,7 +894,7 @@
       </div>
     </div>
   </section>
- 
+
   <!-- ===== FOOTER ===== -->
   <footer class="py-10 px-4 border-t border-zinc-800/60">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
@@ -911,7 +911,7 @@
       <p class="text-zinc-700 text-xs">© 2025 EJE Film. All rights reserved.</p>
     </div>
   </footer>
- 
+
   <script>
     // Scroll reveal
     const revealEls = document.querySelectorAll('.reveal');
@@ -926,7 +926,7 @@
       });
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
- 
+
     // Count-up animation
     function animateCount(el, target, duration = 1800) {
       let start = 0;
@@ -941,7 +941,7 @@
         }
       }, 16);
     }
- 
+
     const metricsObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -954,7 +954,7 @@
     }, { threshold: 0.3 });
     const metricsSection = document.getElementById('metrics');
     if (metricsSection) metricsObserver.observe(metricsSection);
- 
+
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -963,7 +963,7 @@
         if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
- 
+
     // Form submit
     function handleSubmit() {
       const btn = event.target.closest('button');
@@ -971,12 +971,12 @@
       btn.disabled = true;
       btn.style.opacity = '0.7';
     }
- 
+
     // ===== PORTFOLIO FILTER =====
     function filterPortfolio(filter) {
       const cards = document.querySelectorAll('.portfolio-card');
       const btns = document.querySelectorAll('.filter-btn');
- 
+
       btns.forEach(btn => {
         if (btn.dataset.filter === filter) {
           btn.classList.add('active-filter');
@@ -988,7 +988,7 @@
           btn.classList.add('text-zinc-400');
         }
       });
- 
+
       cards.forEach(card => {
         if (filter === 'all' || card.dataset.client === filter) {
           card.style.display = 'block';
@@ -1003,14 +1003,14 @@
       const scrollContainer = document.getElementById('hero-scroll-container');
       const progressBar = document.getElementById('video-progress-bar');
       const scrollHint = document.getElementById('scroll-hint');
- 
+
       if (!video || !scrollContainer) return;
- 
+
       let isSeeking = false;
       let pendingProgress = null;
       let duration = 0;
       let isReady = false;
- 
+
       function getProgress() {
         const containerTop = scrollContainer.getBoundingClientRect().top + window.scrollY;
         const containerHeight = scrollContainer.offsetHeight;
@@ -1019,23 +1019,23 @@
         const scrollable = containerHeight - viewportHeight;
         return Math.min(Math.max(scrolled / scrollable, 0), 1);
       }
- 
+
       function applyProgress(progress) {
         if (!isReady || !duration) return;
         const targetTime = progress * duration;
- 
+
         if (isSeeking) {
           pendingProgress = progress;
           return;
         }
- 
+
         isSeeking = true;
         video.currentTime = targetTime;
- 
+
         if (progressBar) progressBar.style.width = (progress * 100) + '%';
         if (scrollHint) scrollHint.style.opacity = Math.max(0, 1 - progress * 15).toString();
       }
- 
+
       video.addEventListener('seeked', () => {
         isSeeking = false;
         if (pendingProgress !== null) {
@@ -1044,7 +1044,7 @@
           applyProgress(p);
         }
       });
- 
+
       function onReady() {
         if (isReady) return;
         duration = video.duration;
@@ -1053,13 +1053,13 @@
         video.pause();
         applyProgress(getProgress());
       }
- 
+
       video.addEventListener('loadedmetadata', onReady);
       video.addEventListener('canplay', onReady);
- 
+
       // 이미 로드된 경우 처리
       if (video.readyState >= 2 && video.duration) onReady();
- 
+
       // 스크롤 이벤트
       let rafPending = false;
       window.addEventListener('scroll', () => {
@@ -1070,12 +1070,12 @@
           applyProgress(getProgress());
         });
       }, { passive: true });
- 
+
       // 초기 상태 적용
       requestAnimationFrame(() => applyProgress(getProgress()));
     })();
   </script>
- 
+
 </div>
 </body>
 </html>
