@@ -1,6 +1,3 @@
-Index · HTML
-복사
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -756,55 +753,83 @@ Index · HTML
     }
  
     // ===== SCROLL SCRUB VIDEO =====
-    const video = document.getElementById('hero-video');
-    const scrollContainer = document.getElementById('hero-scroll-container');
-    const progressBar = document.getElementById('video-progress-bar');
-    const scrollHint = document.getElementById('scroll-hint');
+    (function() {
+      const video = document.getElementById('hero-video');
+      const scrollContainer = document.getElementById('hero-scroll-container');
+      const progressBar = document.getElementById('video-progress-bar');
+      const scrollHint = document.getElementById('scroll-hint');
  
-    if (video && scrollContainer) {
-      // 영상 로드 후 첫 프레임 표시
-      video.addEventListener('loadedmetadata', () => {
-        video.currentTime = 0;
+      if (!video || !scrollContainer) return;
+ 
+      let isSeeking = false;
+      let pendingProgress = null;
+      let duration = 0;
+      let isReady = false;
+ 
+      function getProgress() {
+        const containerTop = scrollContainer.getBoundingClientRect().top + window.scrollY;
+        const containerHeight = scrollContainer.offsetHeight;
+        const viewportHeight = window.innerHeight;
+        const scrolled = window.scrollY - containerTop;
+        const scrollable = containerHeight - viewportHeight;
+        return Math.min(Math.max(scrolled / scrollable, 0), 1);
+      }
+ 
+      function applyProgress(progress) {
+        if (!isReady || !duration) return;
+        const targetTime = progress * duration;
+ 
+        if (isSeeking) {
+          pendingProgress = progress;
+          return;
+        }
+ 
+        isSeeking = true;
+        video.currentTime = targetTime;
+ 
+        if (progressBar) progressBar.style.width = (progress * 100) + '%';
+        if (scrollHint) scrollHint.style.opacity = Math.max(0, 1 - progress * 15).toString();
+      }
+ 
+      video.addEventListener('seeked', () => {
+        isSeeking = false;
+        if (pendingProgress !== null) {
+          const p = pendingProgress;
+          pendingProgress = null;
+          applyProgress(p);
+        }
       });
  
-      let ticking = false;
+      function onReady() {
+        if (isReady) return;
+        duration = video.duration;
+        if (!isFinite(duration) || duration === 0) return;
+        isReady = true;
+        video.pause();
+        applyProgress(getProgress());
+      }
  
+      video.addEventListener('loadedmetadata', onReady);
+      video.addEventListener('canplay', onReady);
+ 
+      // 이미 로드된 경우 처리
+      if (video.readyState >= 2 && video.duration) onReady();
+ 
+      // 스크롤 이벤트
+      let rafPending = false;
       window.addEventListener('scroll', () => {
-        if (!ticking) {
-          requestAnimationFrame(() => {
-            const rect = scrollContainer.getBoundingClientRect();
-            const containerHeight = scrollContainer.offsetHeight;
-            const viewportHeight = window.innerHeight;
- 
-            // 스크롤 진행률 계산 (0 ~ 1)
-            // rect.top이 0일 때 시작, -(containerHeight - viewportHeight)일 때 끝
-            const scrolled = -rect.top;
-            const scrollable = containerHeight - viewportHeight;
-            const progress = Math.min(Math.max(scrolled / scrollable, 0), 1);
- 
-            // 영상 currentTime 동기화
-            if (video.duration && isFinite(video.duration)) {
-              video.currentTime = progress * video.duration;
-            }
- 
-            // 진행 바 업데이트
-            if (progressBar) {
-              progressBar.style.width = (progress * 100) + '%';
-            }
- 
-            // 스크롤 힌트 페이드아웃
-            if (scrollHint && progress > 0.05) {
-              scrollHint.style.opacity = Math.max(0, 1 - progress * 10).toString();
-            }
- 
-            ticking = false;
-          });
-          ticking = true;
-        }
+        if (rafPending) return;
+        rafPending = true;
+        requestAnimationFrame(() => {
+          rafPending = false;
+          applyProgress(getProgress());
+        });
       }, { passive: true });
-    }
+ 
+      // 초기 상태 적용
+      requestAnimationFrame(() => applyProgress(getProgress()));
+    })();
   </script>
  
 </body>
 </html>
- 
