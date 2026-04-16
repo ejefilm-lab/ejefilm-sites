@@ -567,10 +567,42 @@
     });
   });
 
-  // Form
-  function submitForm(btn) {
-    btn.innerHTML = '전송 완료! 곧 연락드릴게요';
-    btn.disabled = true; btn.style.opacity = '0.7';
+  // Form - Google Sheets 연동
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwB_tN-j6vQWgc5Z0nVdL_cJyERgI2y8G7YH59todgTHvvjtagCHnclzicnj6thFPpr/exec';
+
+  async function submitForm(btn) {
+    const form = btn.closest('.glass');
+    const brand = form.querySelector('input[placeholder*="바우크래프트"]').value.trim();
+    const contact = form.querySelector('input[placeholder*="010"]').value.trim();
+    const service = form.querySelector('select').value;
+    const message = form.querySelector('textarea').value.trim();
+
+    if (!brand || !contact) {
+      alert('브랜드명과 연락처는 필수입니다.');
+      return;
+    }
+
+    btn.innerHTML = '전송 중...';
+    btn.disabled = true;
+
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ brand, contact, service, message })
+      });
+
+      btn.innerHTML = '전송 완료! 곧 연락드릴게요 ✓';
+      btn.style.background = '#a3e635';
+      // 입력창 초기화
+      form.querySelectorAll('input, textarea').forEach(el => el.value = '');
+      form.querySelector('select').value = '';
+    } catch (err) {
+      btn.innerHTML = '문의 보내기 →';
+      btn.disabled = false;
+      alert('전송 중 오류가 발생했습니다. 다시 시도해주세요.');
+    }
   }
 </script>
 </body>
