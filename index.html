@@ -586,16 +586,20 @@
     btn.disabled = true;
 
     try {
+      const formData = new URLSearchParams();
+      formData.append('brand', brand);
+      formData.append('contact', contact);
+      formData.append('service', service);
+      formData.append('message', message);
+
       await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ brand, contact, service, message })
+        body: formData
       });
 
       btn.innerHTML = '전송 완료! 곧 연락드릴게요 ✓';
       btn.style.background = '#a3e635';
-      // 입력창 초기화
       form.querySelectorAll('input, textarea').forEach(el => el.value = '');
       form.querySelector('select').value = '';
     } catch (err) {
