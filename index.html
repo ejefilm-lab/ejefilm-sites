@@ -482,10 +482,22 @@
         </div>
         <div class="glass rounded-2xl p-7 space-y-4">
           <div><label class="text-zinc-500 text-xs uppercase tracking-widest block mb-2">브랜드명 / 회사명</label><input type="text" placeholder="예: 바우크래프트" class="w-full rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 text-sm focus:outline-none" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);"></div>
-          <div><label class="text-zinc-500 text-xs uppercase tracking-widest block mb-2">연락처 (카카오 또는 전화)</label><input type="text" placeholder="010-XXXX-XXXX" class="w-full rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 text-sm focus:outline-none" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);"></div>
+          <div><label class="text-zinc-500 text-xs uppercase tracking-widest block mb-2">연락처 (전화 또는 카카오)</label><input type="text" placeholder="010-XXXX-XXXX" class="w-full rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 text-sm focus:outline-none" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);"></div>
+          <div><label class="text-zinc-500 text-xs uppercase tracking-widest block mb-2">이메일 (견적서 수신용)</label><input type="email" placeholder="example@email.com" class="w-full rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 text-sm focus:outline-none" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);"></div>
           <div><label class="text-zinc-500 text-xs uppercase tracking-widest block mb-2">필요한 서비스</label><select class="w-full rounded-xl px-4 py-3.5 text-zinc-400 text-sm focus:outline-none" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);"><option value="">선택해주세요</option><option>숏폼 콘텐츠 제작</option><option>SNS 마케팅 · Meta 광고</option><option>기업 인터뷰 촬영</option><option>공연 · 라이브 촬영</option><option>기타 / 복합</option></select></div>
           <div><label class="text-zinc-500 text-xs uppercase tracking-widest block mb-2">문의 내용</label><textarea rows="3" placeholder="현재 상황이나 궁금한 점을 자유롭게 적어주세요" class="w-full rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 text-sm focus:outline-none resize-none" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);"></textarea></div>
           <button onclick="submitForm(this)" class="btn-primary w-full py-4 rounded-xl text-base flex items-center justify-center gap-2 min-h-[52px]">문의 보내기 <iconify-icon icon="solar:arrow-right-bold" class="text-lg"></iconify-icon></button>
+
+          <!-- 카카오 채널 -->
+          <div class="flex items-center gap-3 pt-1">
+            <div class="flex-1 h-px bg-zinc-800"></div>
+            <span class="text-zinc-600 text-xs">또는</span>
+            <div class="flex-1 h-px bg-zinc-800"></div>
+          </div>
+          <a href="http://pf.kakao.com/_xifxoxgn" target="_blank" class="w-full py-3.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 min-h-[48px] transition-all duration-200 hover:opacity-90" style="background:#FEE500;color:#191919;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#191919"><path d="M12 3C6.477 3 2 6.477 2 10.857c0 2.742 1.59 5.157 4.004 6.623L4.857 21l4.724-2.45A11.6 11.6 0 0012 18.714c5.523 0 10-3.477 10-7.857S17.523 3 12 3z"/></svg>
+            카카오로 실시간 상담하기
+          </a>
           <p class="text-zinc-600 text-xs text-center">영업일 기준 24시간 내 연락드립니다</p>
         </div>
       </div>
@@ -520,6 +532,15 @@
     <p>Shortform · SNS Marketing · Video Production</p>
   </div>
 </footer>
+
+<!-- 카카오 플로팅 버튼 -->
+<a href="http://pf.kakao.com/_xifxoxgn" target="_blank"
+  style="position:fixed;bottom:1.75rem;right:1.75rem;z-index:999;display:flex;align-items:center;gap:0.5rem;background:#FEE500;color:#191919;font-weight:700;font-size:0.8rem;padding:0.75rem 1.1rem;border-radius:9999px;box-shadow:0 4px 20px rgba(254,229,0,0.35);transition:all 0.3s cubic-bezier(0.16,1,0.3,1);text-decoration:none;white-space:nowrap;"
+  onmouseover="this.style.transform='scale(1.05)';this.style.boxShadow='0 6px 28px rgba(254,229,0,0.45)'"
+  onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(254,229,0,0.35)'">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="#191919"><path d="M12 3C6.477 3 2 6.477 2 10.857c0 2.742 1.59 5.157 4.004 6.623L4.857 21l4.724-2.45A11.6 11.6 0 0012 18.714c5.523 0 10-3.477 10-7.857S17.523 3 12 3z"/></svg>
+  카카오 상담
+</a>
 
 <script>
   // Nav scroll
@@ -574,6 +595,7 @@
     const form = btn.closest('.glass');
     const brand = form.querySelector('input[placeholder*="바우크래프트"]').value.trim();
     const contact = form.querySelector('input[placeholder*="010"]').value.trim();
+    const email = form.querySelector('input[type="email"]').value.trim();
     const service = form.querySelector('select').value;
     const message = form.querySelector('textarea').value.trim();
 
@@ -589,6 +611,7 @@
       const formData = new URLSearchParams();
       formData.append('brand', brand);
       formData.append('contact', contact);
+      formData.append('email', email);
       formData.append('service', service);
       formData.append('message', message);
 
