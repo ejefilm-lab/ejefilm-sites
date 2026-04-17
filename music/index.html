@@ -1,1 +1,517 @@
-
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이제이필름 — 음악과 공연을 영상으로 담습니다</title>
+  <meta name="description" content="워십 라이브, 뮤직비디오, 공연 촬영까지. 음악의 순간을 영상으로 남깁니다.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+  <script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Pretendard', 'system-ui', 'sans-serif'] },
+          colors: { accent: '#E8FF47' },
+        }
+      }
+    }
+  </script>
+  <style>
+    * { -webkit-font-smoothing: antialiased; }
+    html { scroll-behavior: smooth; }
+    body { background: #09090b; color: #f4f4f5; font-family: 'Pretendard', system-ui, sans-serif; overflow-x: hidden; }
+    .break-keep { word-break: keep-all; }
+ 
+    body::after {
+      content: ''; position: fixed; inset: 0; z-index: 9999; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      opacity: 0.4;
+    }
+ 
+    .glass { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); }
+    #nav { transition: background 0.4s ease; }
+    #nav.scrolled { background:rgba(9,9,11,0.88); border-bottom:1px solid rgba(255,255,255,0.07); backdrop-filter:blur(20px); }
+ 
+    .hero-bg {
+      background:
+        radial-gradient(ellipse 70% 60% at 30% 30%, rgba(232,255,71,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 80% 70%, rgba(255,255,255,0.02) 0%, transparent 60%),
+        #09090b;
+    }
+    .grid-lines {
+      background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+ 
+    @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .marquee-track { animation: marquee 30s linear infinite; width: max-content; }
+ 
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    .float-anim { animation: float 6s ease-in-out infinite; }
+ 
+    @keyframes scrollLine { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
+    .scroll-line { animation: scrollLine 2s ease-in-out infinite; }
+ 
+    .fade-up { opacity:0; transform:translateY(2rem); transition:opacity 0.7s ease,transform 0.7s ease; }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+ 
+    .btn-primary { background:#E8FF47; color:#09090b; font-weight:700; transition:all 0.3s cubic-bezier(0.16,1,0.3,1); }
+    .btn-primary:hover { transform:scale(1.02); box-shadow:0 0 40px rgba(232,255,71,0.2); }
+    .btn-primary:active { transform:scale(0.98); }
+    .btn-ghost { border:1px solid rgba(255,255,255,0.15); color:#fff; font-weight:600; transition:all 0.3s ease; }
+    .btn-ghost:hover { border-color:rgba(255,255,255,0.4); background:rgba(255,255,255,0.05); }
+ 
+    .card { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:1.5rem; }
+    .card-hover { transition:border-color 0.3s,background 0.3s,transform 0.3s; }
+    .card-hover:hover { border-color:rgba(232,255,71,0.2); background:rgba(232,255,71,0.03); transform:translateY(-2px); }
+ 
+    .text-accent { color:#E8FF47; }
+    .tag { display:inline-flex; align-items:center; gap:0.375rem; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:9999px; padding:0.25rem 0.75rem; font-size:0.75rem; color:#a1a1aa; }
+ 
+    /* YouTube embed */
+    .yt-wrap { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:1.25rem; }
+    .yt-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
+ 
+    .grad-text { background:linear-gradient(135deg,#fff 0%,#71717a 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+ 
+    /* 세로형 포트폴리오 카드 */
+    .port-card { overflow:hidden; border-radius:1rem; aspect-ratio:9/16; position:relative; background:#18181b; border:1px solid rgba(255,255,255,0.06); display:block; }
+    .port-card img { width:100%; height:100%; object-fit:cover; transition:transform 0.7s ease; }
+    .port-card:hover img { transform:scale(1.06); }
+    .port-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(9,9,11,0.9) 0%,transparent 60%); }
+    .play-icon { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity 0.3s; }
+    .port-card:hover .play-icon { opacity:1; }
+  </style>
+</head>
+<body>
+ 
+<!-- NAV -->
+<nav id="nav" class="fixed top-0 left-0 right-0 z-50 px-6 md:px-10 py-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <a href="/" class="font-bold text-xl tracking-tight">EJE<span class="text-accent">.</span>film</a>
+    <div class="hidden md:flex items-center gap-8 text-sm text-zinc-400">
+      <a href="#work" class="hover:text-white transition-colors">작업물</a>
+      <a href="#services" class="hover:text-white transition-colors">서비스</a>
+      <a href="#contact" class="hover:text-white transition-colors">문의</a>
+      <a href="/" class="hover:text-white transition-colors text-zinc-600">← 메인으로</a>
+    </div>
+    <a href="#contact" class="btn-primary text-sm px-5 py-2.5 rounded-xl">촬영 문의하기</a>
+  </div>
+</nav>
+ 
+<!-- HERO -->
+<section class="hero-bg min-h-[100dvh] flex flex-col justify-center px-6 md:px-10 pt-24 pb-16 relative overflow-hidden">
+  <div class="grid-lines absolute inset-0 pointer-events-none"></div>
+  <div class="max-w-7xl mx-auto w-full relative z-10">
+    <div class="max-w-3xl space-y-8">
+      <div class="tag">
+        <span class="w-1.5 h-1.5 rounded-full inline-block" style="background:#E8FF47;"></span>
+        Live · Music Video · Worship · Performance
+      </div>
+      <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight break-keep">
+        <span class="grad-text">음악의 순간을</span><br>
+        <span class="text-accent">영상으로</span> 남깁니다
+      </h1>
+      <p class="text-zinc-400 text-lg leading-relaxed max-w-[46ch] break-keep">
+        워십 라이브, 뮤직비디오, 인디 아티스트 공연까지.<br>
+        현장의 에너지와 감동을 그대로 담아냅니다.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="#contact" class="btn-primary px-8 py-4 rounded-2xl text-base flex items-center justify-center gap-2 min-h-[52px]">
+          촬영 문의하기 <iconify-icon icon="solar:arrow-right-linear" class="text-lg"></iconify-icon>
+        </a>
+        <a href="#work" class="btn-ghost px-8 py-4 rounded-2xl text-base flex items-center justify-center gap-2 min-h-[52px]">
+          작업물 보기
+        </a>
+      </div>
+      <!-- 강점 태그 -->
+      <div class="flex flex-wrap gap-2 pt-2">
+        <span class="tag">멀티캠 촬영</span>
+        <span class="tag">라이브 방송 경험</span>
+        <span class="tag">현장 음향 이해</span>
+        <span class="tag">숏폼 편집 포함</span>
+        <span class="tag">전국 출장 가능</span>
+      </div>
+    </div>
+  </div>
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
+    <span class="text-zinc-600 text-xs tracking-widest uppercase">Scroll</span>
+    <div style="width:1px;height:48px;background:rgba(255,255,255,0.1);border-radius:1px;overflow:hidden;">
+      <div class="scroll-line" style="width:100%;height:100%;background:#E8FF47;border-radius:1px;"></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- 차별점 -->
+<section class="py-16 px-6 md:px-10 border-y border-zinc-800/50">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 fade-up">
+    <div class="flex items-start gap-4">
+      <div class="w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(232,255,71,0.1);border:1px solid rgba(232,255,71,0.2);">
+        <iconify-icon icon="solar:music-note-bold" style="color:#E8FF47;font-size:1.25rem;"></iconify-icon>
+      </div>
+      <div>
+        <p class="text-white font-semibold mb-1 break-keep">음악을 아는 촬영감독</p>
+        <p class="text-zinc-500 text-sm leading-relaxed break-keep">베이스 연주자로 워십 현장을 직접 경험. 음악의 흐름을 이해하고 결정적 순간을 놓치지 않아요.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-4">
+      <div class="w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(232,255,71,0.1);border:1px solid rgba(232,255,71,0.2);">
+        <iconify-icon icon="solar:videocamera-record-bold" style="color:#E8FF47;font-size:1.25rem;"></iconify-icon>
+      </div>
+      <div>
+        <p class="text-white font-semibold mb-1 break-keep">라이브 방송 전문 경험</p>
+        <p class="text-zinc-500 text-sm leading-relaxed break-keep">방송 스튜디오 촬영감독으로 라이브 현장 운영 경험 다수. 멀티캠 세팅과 현장 대응에 익숙해요.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-4">
+      <div class="w-10 h-10 rounded-2xl flex items-center justify-center flex-shrink-0" style="background:rgba(232,255,71,0.1);border:1px solid rgba(232,255,71,0.2);">
+        <iconify-icon icon="solar:smartphone-bold" style="color:#E8FF47;font-size:1.25rem;"></iconify-icon>
+      </div>
+      <div>
+        <p class="text-white font-semibold mb-1 break-keep">촬영 + 숏폼 편집까지</p>
+        <p class="text-zinc-500 text-sm leading-relaxed break-keep">촬영 후 SNS 숏폼 편집까지 원스톱. 공연 당일 콘텐츠를 빠르게 활용할 수 있어요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- 작업물 -->
+<section id="work" class="py-24 px-6 md:px-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-12 fade-up">
+      <p class="tag mb-4">작업물</p>
+      <h2 class="text-4xl md:text-5xl font-bold leading-tight tracking-tight break-keep">
+        실제로 담은 <span class="text-accent">순간들</span>
+      </h2>
+    </div>
+ 
+    <!-- 메인 영상: 향동중앙교회 -->
+    <div class="fade-up mb-8">
+      <div class="card rounded-3xl overflow-hidden">
+        <div class="yt-wrap">
+          <iframe src="https://www.youtube.com/embed/oVTDxmqLbdU" title="향동중앙교회 워십 - 호흡이 있는 자마다 PRAISE" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <p class="text-white font-bold text-lg break-keep">호흡이 있는 자마다 PRAISE</p>
+            <p class="text-zinc-500 text-sm mt-1">향동중앙교회 · Elevation Worship Cover · 워십 라이브 촬영</p>
+          </div>
+          <div class="flex gap-3 flex-wrap">
+            <span class="tag">멀티캠</span>
+            <span class="tag">라이브 촬영</span>
+            <span class="tag">컬러그레이딩</span>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- 추가 예정 -->
+    <div class="fade-up">
+      <div class="card rounded-3xl p-8 md:p-12 flex flex-col items-center justify-center text-center" style="border-style:dashed;border-color:rgba(255,255,255,0.1);min-height:280px;">
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-4" style="background:rgba(232,255,71,0.08);border:1px solid rgba(232,255,71,0.15);">
+          <iconify-icon icon="solar:add-circle-bold" style="color:#E8FF47;font-size:1.75rem;"></iconify-icon>
+        </div>
+        <p class="text-white font-bold text-lg mb-2 break-keep">인디 아티스트 뮤직비디오</p>
+        <p class="text-zinc-500 text-sm break-keep">촬영 준비 중 · 곧 업로드 예정</p>
+        <span class="tag mt-4">Coming Soon</span>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- 서비스 -->
+<section id="services" class="py-24 px-6 md:px-10" style="background:rgba(255,255,255,0.015);">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-14 fade-up">
+      <p class="tag mb-4">서비스 구성</p>
+      <h2 class="text-4xl md:text-5xl font-bold leading-tight tracking-tight break-keep">
+        필요에 맞게 <span class="text-accent">선택</span>하세요
+      </h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-4 fade-up">
+ 
+      <!-- Live Archive -->
+      <div class="card rounded-3xl p-8 card-hover">
+        <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6" style="background:rgba(232,255,71,0.08);border:1px solid rgba(232,255,71,0.15);">
+          <iconify-icon icon="solar:record-bold" style="color:#E8FF47;font-size:1.5rem;"></iconify-icon>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3 break-keep">Live Archive</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed break-keep mb-6">공연·예배의 전체 흐름을 기록합니다. 고정캠 기반 풀버전 편집본 1편 제공.</p>
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-zinc-400 text-xs">
+            <iconify-icon icon="solar:check-circle-bold" style="color:#E8FF47;"></iconify-icon>
+            고정캠 1~2대 운영
+          </div>
+          <div class="flex items-center gap-2 text-zinc-400 text-xs">
+            <iconify-icon icon="solar:check-circle-bold" style="color:#E8FF47;"></iconify-icon>
+            풀버전 편집본 1편
+          </div>
+          <div class="flex items-center gap-2 text-zinc-400 text-xs">
+            <iconify-icon icon="solar:check-circle-bold" style="color:#E8FF47;"></iconify-icon>
+            컬러그레이딩 포함
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Fan Package -->
+      <div class="card rounded-3xl p-8 card-hover" style="border-color:rgba(232,255,71,0.15);">
+        <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6" style="background:rgba(232,255,71,0.12);border:1px solid rgba(232,255,71,0.25);">
+          <iconify-icon icon="solar:users-group-rounded-bold" style="color:#E8FF47;font-size:1.5rem;"></iconify-icon>
+        </div>
+        <div class="flex items-center gap-2 mb-3">
+          <h3 class="text-xl font-bold text-white break-keep">Fan Package</h3>
+          <span class="text-xs font-semibold px-2 py-0.5 rounded-full" style="background:rgba(232,255,71,0.15);color:#E8FF47;">추천</span>
+        </div>
+        <p class="text-zinc-400 text-sm leading-relaxed break-keep mb-6">멀티캠 촬영 + 반응컷 포함. 숏폼 3편 추가 제공으로 SNS 활용까지.</p>
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-zinc-400 text-xs">
+            <iconify-icon icon="solar:check-circle-bold" style="color:#E8FF47;"></iconify-icon>
+            멀티캠 2~3대 운영
+          </div>
+          <div class="flex items-center gap-2 text-zinc-400 text-xs">
+            <iconify-icon icon="solar:check-circle-bold" style="color:#E8FF47;"></iconify-icon>
+            풀버전 + 숏폼 3편
+          </div>
+          <div class="flex items-center gap-2 text-zinc-400 text-xs">
+            <iconify-icon icon="solar:check-circle-bold" style="color:#E8FF47;"></iconify-icon>
+            팬 반응컷 포함
+          </div>
+          <div class="flex items-center gap-2 text-zinc-400 text-xs">
+            <iconify-icon icon="solar:check-circle-bold" style="color:#E8FF47;"></iconify-icon>
+            SNS 업로드용 최적화
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Release Package -->
+      <div class="card rounded-3xl p-8 card-hover">
+        <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-6" style="background:rgba(232,255,71,0.08);border:1px solid rgba(232,255,71,0.15);">
+          <iconify-icon icon="solar:star-bold" style="color:#E8FF47;font-size:1.5rem;"></iconify-icon>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3 break-keep">Release Package</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed break-keep mb-6">공연 + 아티스트 인터뷰 + 뮤직비디오 티저까지. 앨범 발매나 공연 홍보에 최적.</p>
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-zinc-400 text-xs">
+            <iconify-icon icon="solar:check-circle-bold" style="color:#E8FF47;"></iconify-icon>
+            공연 풀버전 촬영
+          </div>
+          <div class="flex items-center gap-2 text-zinc-400 text-xs">
+            <iconify-icon icon="solar:check-circle-bold" style="color:#E8FF47;"></iconify-icon>
+            아티스트 인터뷰 영상
+          </div>
+          <div class="flex items-center gap-2 text-zinc-400 text-xs">
+            <iconify-icon icon="solar:check-circle-bold" style="color:#E8FF47;"></iconify-icon>
+            뮤직비디오 티저
+          </div>
+          <div class="flex items-center gap-2 text-zinc-400 text-xs">
+            <iconify-icon icon="solar:check-circle-bold" style="color:#E8FF47;"></iconify-icon>
+            숏폼 다수 포함
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+    <p class="text-center text-zinc-600 text-sm mt-8 fade-up break-keep">모든 패키지는 현장 상황에 맞게 조율 가능합니다. 먼저 문의해주세요.</p>
+  </div>
+</section>
+ 
+<!-- 진행 방식 -->
+<section class="py-24 px-6 md:px-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-14 fade-up">
+      <p class="tag mb-4">진행 방식</p>
+      <h2 class="text-4xl md:text-5xl font-bold leading-tight tracking-tight break-keep">이렇게 <span class="text-accent">진행</span>됩니다</h2>
+    </div>
+    <div class="grid md:grid-cols-4 gap-4 fade-up">
+      <div class="card rounded-2xl p-7 card-hover">
+        <span class="text-5xl font-bold text-zinc-800 block mb-5">01</span>
+        <h3 class="text-lg font-bold text-white mb-2 break-keep">문의 & 상담</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed break-keep">공연 일정, 장소, 규모를 알려주세요. 최적의 구성을 제안해드릴게요.</p>
+      </div>
+      <div class="card rounded-2xl p-7 card-hover">
+        <span class="text-5xl font-bold text-zinc-800 block mb-5">02</span>
+        <h3 class="text-lg font-bold text-white mb-2 break-keep">사전 조율</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed break-keep">세트리스트, 동선, 조명 등 현장 정보를 미리 파악해 최적의 앵글을 설계합니다.</p>
+      </div>
+      <div class="card rounded-2xl p-7 card-hover">
+        <span class="text-5xl font-bold text-zinc-800 block mb-5">03</span>
+        <h3 class="text-lg font-bold text-white mb-2 break-keep">현장 촬영</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed break-keep">멀티캠 세팅부터 현장 운영까지. 공연에 방해되지 않게 조용하고 빠르게 움직여요.</p>
+      </div>
+      <div class="card rounded-2xl p-7 card-hover" style="border-color:rgba(232,255,71,0.1);">
+        <span class="text-5xl font-bold text-zinc-800 block mb-5">04</span>
+        <h3 class="text-lg font-bold text-white mb-2 break-keep">편집 & 납품</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed break-keep">컬러그레이딩, 음향 보정, 자막까지 완성해서 납품. 숏폼 추가 편집도 가능해요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- CTA -->
+<section id="contact" class="py-24 px-6 md:px-10" style="background:rgba(255,255,255,0.015);">
+  <div class="max-w-7xl mx-auto">
+    <div class="card rounded-3xl overflow-hidden fade-up" style="background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(232,255,71,0.07) 0%,transparent 70%);">
+      <div class="px-8 md:px-16 py-16 md:py-20 grid md:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="tag mb-6">촬영 문의</p>
+          <h2 class="text-4xl md:text-5xl font-bold leading-tight tracking-tight break-keep mb-6">
+            공연 일정이<br>정해지셨나요?
+          </h2>
+          <p class="text-zinc-400 leading-relaxed break-keep mb-8">공연 2~4주 전에 문의해주시면 충분히 준비할 수 있어요. 일정이 촉박해도 먼저 연락주세요.</p>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(232,255,71,0.1);border:1px solid rgba(232,255,71,0.2);">
+                <iconify-icon icon="solar:check-circle-bold" style="color:#E8FF47;font-size:1rem;"></iconify-icon>
+              </div>
+              <p class="text-zinc-300 text-sm break-keep">전국 출장 가능</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(232,255,71,0.1);border:1px solid rgba(232,255,71,0.2);">
+                <iconify-icon icon="solar:check-circle-bold" style="color:#E8FF47;font-size:1rem;"></iconify-icon>
+              </div>
+              <p class="text-zinc-300 text-sm break-keep">예산에 맞는 구성 제안</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(232,255,71,0.1);border:1px solid rgba(232,255,71,0.2);">
+                <iconify-icon icon="solar:check-circle-bold" style="color:#E8FF47;font-size:1rem;"></iconify-icon>
+              </div>
+              <p class="text-zinc-300 text-sm break-keep">소규모 공연부터 대형 무대까지</p>
+            </div>
+          </div>
+        </div>
+        <!-- Form -->
+        <div class="glass rounded-2xl p-7 space-y-4">
+          <div><label class="text-zinc-500 text-xs uppercase tracking-widest block mb-2">이름 / 팀명</label><input type="text" placeholder="예: 향동중앙교회 워십팀" class="w-full rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 text-sm focus:outline-none" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);"></div>
+          <div><label class="text-zinc-500 text-xs uppercase tracking-widest block mb-2">연락처</label><input type="text" placeholder="010-XXXX-XXXX" class="w-full rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 text-sm focus:outline-none" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);"></div>
+          <div><label class="text-zinc-500 text-xs uppercase tracking-widest block mb-2">이메일</label><input type="email" placeholder="example@email.com" class="w-full rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 text-sm focus:outline-none" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);"></div>
+          <div><label class="text-zinc-500 text-xs uppercase tracking-widest block mb-2">공연 유형</label>
+            <select class="w-full rounded-xl px-4 py-3.5 text-zinc-400 text-sm focus:outline-none" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);">
+              <option value="">선택해주세요</option>
+              <option>워십 라이브 / 교회 공연</option>
+              <option>인디 아티스트 공연</option>
+              <option>뮤직비디오 제작</option>
+              <option>앨범 발매 콘서트</option>
+              <option>기타</option>
+            </select>
+          </div>
+          <div><label class="text-zinc-500 text-xs uppercase tracking-widest block mb-2">공연 일정 및 문의 내용</label><textarea rows="3" placeholder="공연 날짜, 장소, 규모 등 알려주세요" class="w-full rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 text-sm focus:outline-none resize-none" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);"></textarea></div>
+          <button onclick="submitMusicForm(this)" class="btn-primary w-full py-4 rounded-xl text-base flex items-center justify-center gap-2 min-h-[52px]">
+            문의 보내기 <iconify-icon icon="solar:arrow-right-bold" class="text-lg"></iconify-icon>
+          </button>
+          <div class="flex items-center gap-3 pt-1">
+            <div class="flex-1 h-px bg-zinc-800"></div>
+            <span class="text-zinc-600 text-xs">또는</span>
+            <div class="flex-1 h-px bg-zinc-800"></div>
+          </div>
+          <a href="http://pf.kakao.com/_xifxoxgn/chat" target="_blank" class="w-full py-3.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 min-h-[48px] transition-all duration-200 hover:opacity-90" style="background:#FEE500;color:#191919;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#191919"><path d="M12 3C6.477 3 2 6.477 2 10.857c0 2.742 1.59 5.157 4.004 6.623L4.857 21l4.724-2.45A11.6 11.6 0 0012 18.714c5.523 0 10-3.477 10-7.857S17.523 3 12 3z"/></svg>
+            카카오로 바로 상담하기
+          </a>
+          <p class="text-zinc-600 text-xs text-center">영업일 기준 24시간 내 연락드립니다</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- FOOTER -->
+<footer class="py-12 px-6 md:px-10 border-t border-zinc-800/60">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-8">
+    <div>
+      <p class="font-bold text-xl tracking-tight mb-2">EJE<span class="text-accent">.</span>film</p>
+      <p class="text-zinc-500 text-sm break-keep">음악 · 공연 · 라이브 촬영</p>
+    </div>
+    <div class="flex gap-12 text-sm text-zinc-500">
+      <div class="space-y-2">
+        <p class="text-zinc-300 font-semibold text-xs uppercase tracking-widest mb-3">바로가기</p>
+        <a href="#work" class="block hover:text-white transition-colors">작업물</a>
+        <a href="#services" class="block hover:text-white transition-colors">서비스</a>
+        <a href="#contact" class="block hover:text-white transition-colors">문의</a>
+        <a href="/" class="block hover:text-white transition-colors">메인 사이트</a>
+      </div>
+      <div class="space-y-2">
+        <p class="text-zinc-300 font-semibold text-xs uppercase tracking-widest mb-3">다른 서비스</p>
+        <a href="/" class="block hover:text-white transition-colors">숏폼 마케팅</a>
+        <a href="/hospital" class="block hover:text-white transition-colors">병원 인테리어</a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto mt-8 pt-8 border-t border-zinc-800/40 flex flex-col md:flex-row items-center justify-between gap-2 text-zinc-600 text-xs">
+    <p>© 2025 EJE Film. All rights reserved.</p>
+    <p>Live · Music Video · Worship · Performance</p>
+  </div>
+</footer>
+ 
+<!-- 카카오 플로팅 버튼 -->
+<a href="http://pf.kakao.com/_xifxoxgn/chat" target="_blank"
+  style="position:fixed;bottom:1.75rem;right:1.75rem;z-index:999;display:flex;align-items:center;gap:0.5rem;background:#FEE500;color:#191919;font-weight:700;font-size:0.8rem;padding:0.75rem 1.1rem;border-radius:9999px;box-shadow:0 4px 20px rgba(254,229,0,0.35);transition:all 0.3s cubic-bezier(0.16,1,0.3,1);text-decoration:none;white-space:nowrap;"
+  onmouseover="this.style.transform='scale(1.05)'"
+  onmouseout="this.style.transform='scale(1)'">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="#191919"><path d="M12 3C6.477 3 2 6.477 2 10.857c0 2.742 1.59 5.157 4.004 6.623L4.857 21l4.724-2.45A11.6 11.6 0 0012 18.714c5.523 0 10-3.477 10-7.857S17.523 3 12 3z"/></svg>
+  카카오 상담
+</a>
+ 
+<script>
+  // Nav scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+ 
+  // Fade up
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+ 
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+ 
+  // Form
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwB_tN-j6vQWgc5Z0nVdL_cJyERgI2y8G7YH59todgTHvvjtagCHnclzicnj6thFPpr/exec';
+ 
+  async function submitMusicForm(btn) {
+    const form = btn.closest('.glass');
+    const brand = form.querySelector('input[placeholder*="향동"]').value.trim();
+    const contact = form.querySelector('input[placeholder*="010"]').value.trim();
+    const email = form.querySelector('input[type="email"]').value.trim();
+    const service = form.querySelector('select').value;
+    const message = form.querySelector('textarea').value.trim();
+ 
+    if (!brand || !contact) { alert('이름과 연락처는 필수입니다.'); return; }
+ 
+    btn.innerHTML = '전송 중...';
+    btn.disabled = true;
+ 
+    try {
+      const formData = new URLSearchParams();
+      formData.append('brand', `[음악/공연] ${brand}`);
+      formData.append('contact', contact);
+      formData.append('email', email);
+      formData.append('service', service);
+      formData.append('message', message);
+ 
+      await fetch(APPS_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: formData });
+ 
+      btn.innerHTML = '전송 완료! 곧 연락드릴게요 ✓';
+      btn.style.background = '#a3e635';
+      form.querySelectorAll('input, textarea').forEach(el => el.value = '');
+      form.querySelector('select').value = '';
+    } catch (err) {
+      btn.innerHTML = '문의 보내기 →';
+      btn.disabled = false;
+      alert('전송 중 오류가 발생했습니다.');
+    }
+  }
+</script>
+</body>
+</html>
+ 
