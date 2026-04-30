@@ -6,8 +6,8 @@
  
   <!-- ============ Primary Meta Tags ============ -->
   <title>EJE Film 이제이필름 | 영상제작·SNS마케팅 스튜디오</title>
-  <meta name="description" content="EJE Film(이제이필름)은 영상제작과 SNS마케팅을 통합 운영하는 스튜디오입니다. 브랜드 필름, 숏폼 릴스, 메타 광고 캠페인까지 기획·촬영·편집·운영.">
-  <meta name="keywords" content="이제이필름, EJE Film, 영상제작, 영상제작 스튜디오, SNS마케팅, 릴스 제작, 숏폼 제작, 브랜드 영상, 메타 광고, 인스타 광고">
+  <meta name="description" content="EJE Film(이제이필름)은 영상제작과 SNS마케팅을 통합 운영하는 스튜디오입니다. 브랜드 필름, 숏폼 릴스, 유튜브 롱폼까지 기획·촬영·편집.">
+  <meta name="keywords" content="이제이필름, EJE Film, 영상제작, 영상제작 스튜디오, SNS마케팅, 릴스 제작, 숏폼 제작, 브랜드 영상, 유튜브 영상, 인터뷰 영상">
   <meta name="author" content="EJE Film">
   <meta name="robots" content="index, follow">
   <meta http-equiv="Content-Language" content="ko">
@@ -23,14 +23,14 @@
   <meta property="og:site_name" content="EJE Film">
   <meta property="og:url" content="https://ejefilm.com/">
   <meta property="og:title" content="EJE Film 이제이필름 | 영상제작·SNS마케팅 스튜디오">
-  <meta property="og:description" content="브랜드 필름, 숏폼 릴스, 메타 광고까지. 영상제작과 SNS마케팅을 통합 운영하는 EJE Film.">
+  <meta property="og:description" content="브랜드 필름, 숏폼 릴스, 유튜브 롱폼까지. 영상제작과 SNS마케팅을 통합 운영하는 EJE Film.">
   <meta property="og:image" content="https://ejefilm.com/og-image.jpg">
   <meta property="og:locale" content="ko_KR">
  
   <!-- ============ Twitter Card ============ -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="EJE Film 이제이필름 | 영상제작·SNS마케팅 스튜디오">
-  <meta name="twitter:description" content="브랜드 필름, 숏폼 릴스, 메타 광고까지. EJE Film.">
+  <meta name="twitter:description" content="브랜드 필름, 숏폼 릴스, 유튜브 롱폼까지. EJE Film.">
   <meta name="twitter:image" content="https://ejefilm.com/og-image.jpg">
  
   <!-- ============ Favicon ============ -->
@@ -46,7 +46,7 @@
     "url": "https://ejefilm.com",
     "logo": "https://ejefilm.com/logo.png",
     "image": "https://ejefilm.com/og-image.jpg",
-    "description": "영상제작과 SNS마케팅을 통합 운영하는 1인 스튜디오. 브랜드 필름, 숏폼 릴스, 메타 광고 캠페인을 기획·촬영·편집·운영합니다.",
+    "description": "영상제작과 SNS마케팅을 통합 운영하는 1인 스튜디오. 브랜드 필름, 숏폼 릴스, 유튜브 롱폼까지 기획·촬영·편집합니다.",
     "priceRange": "₩₩",
     "areaServed": {
       "@type": "Country",
@@ -54,13 +54,14 @@
     },
     "serviceType": [
       "Video Production",
-      "Social Media Marketing",
       "Brand Film Production",
       "Short-form Video Content",
-      "Meta Ads Campaign Management"
+      "YouTube Channel Management",
+      "Long-form Video Production",
+      "Interview Video Production"
     ],
     "knowsAbout": [
-      "영상제작", "SNS마케팅", "브랜드 필름", "릴스 제작", "숏폼 영상", "메타 광고"
+      "영상제작", "SNS마케팅", "브랜드 필름", "릴스 제작", "숏폼 영상", "유튜브 영상", "롱폼 영상", "인터뷰 영상"
     ],
     "sameAs": [
       "https://www.instagram.com/ejefilm",
@@ -370,54 +371,58 @@
     </div>
     <div class="flex flex-wrap gap-2 mb-8 fade-up">
       <button onclick="filterPort('all')" class="filter-btn active tag" data-f="all">전체</button>
-      <button onclick="filterPort('baucraft')" class="filter-btn tag" data-f="baucraft">바우크래프트</button>
-      <button onclick="filterPort('sound')" class="filter-btn tag" data-f="sound">소리를디자인하다</button>
-      <button onclick="filterPort('jmmondo')" class="filter-btn tag" data-f="jmmondo">제이엠몬도</button>
-      <button onclick="filterPort('others')" class="filter-btn tag" data-f="others">기타</button>
+      <button onclick="filterPort('shortform')" class="filter-btn tag" data-f="shortform">숏폼</button>
+      <button onclick="filterPort('longform')" class="filter-btn tag" data-f="longform">유튜브·롱폼</button>
+      <button onclick="filterPort('interview')" class="filter-btn tag" data-f="interview">인터뷰</button>
     </div>
     <div id="port-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 fade-up">
  
-      <a href="https://www.instagram.com/reel/C58WSbAS3PX/?igsh=MWE1d2FoaXlzbjc1MQ==" target="_blank" class="port-item" data-c="baucraft">
+      <a href="https://youtu.be/nbGBeUct6To" target="_blank" rel="noopener" class="port-item" data-c="longform">
+        <div class="port-card"><img src="thumb-warmsound-ep01.png" loading="lazy" decoding="async" alt="따뜻한 소리 프로젝트 EP01"><div class="port-overlay"></div><div class="play-icon"><div style="width:3rem;height:3rem;border-radius:9999px;background:rgba(232,255,71,0.2);border:1px solid rgba(232,255,71,0.4);display:flex;align-items:center;justify-content:center;"><iconify-icon icon="solar:play-bold" style="font-size:1.25rem;color:#E8FF47;margin-left:2px;"></iconify-icon></div></div>
+        <div style="position:absolute;bottom:1rem;left:1rem;right:1rem;"><p class="text-white text-sm font-semibold break-keep">소리를디자인하다</p><div style="display:flex;align-items:center;gap:0.375rem;margin-top:0.25rem;"><iconify-icon icon="solar:youtube-linear" style="font-size:0.75rem;color:#71717a;"></iconify-icon><span style="font-size:0.7rem;color:#71717a;">따뜻한 소리 프로젝트 EP01</span></div></div></div>
+      </a>
+ 
+      <a href="https://www.instagram.com/reel/C58WSbAS3PX/?igsh=MWE1d2FoaXlzbjc1MQ==" target="_blank" class="port-item" data-c="shortform">
         <div class="port-card"><img src="thumb-baucraft.png" loading="lazy" decoding="async" alt="바우크래프트"><div class="port-overlay"></div><div class="play-icon"><div style="width:3rem;height:3rem;border-radius:9999px;background:rgba(232,255,71,0.2);border:1px solid rgba(232,255,71,0.4);display:flex;align-items:center;justify-content:center;"><iconify-icon icon="solar:play-bold" style="font-size:1.25rem;color:#E8FF47;margin-left:2px;"></iconify-icon></div></div>
         <div style="position:absolute;bottom:1rem;left:1rem;right:1rem;"><p class="text-white text-sm font-semibold break-keep">바우크래프트</p><div style="display:flex;align-items:center;gap:0.375rem;margin-top:0.25rem;"><iconify-icon icon="solar:instagram-linear" style="font-size:0.75rem;color:#71717a;"></iconify-icon><span style="font-size:0.7rem;color:#71717a;">릴스</span></div></div></div>
       </a>
  
-      <a href="https://www.instagram.com/reel/DTCc-BvkW5K/?igsh=YnlhYXloYndkMnF4" target="_blank" class="port-item" data-c="sound">
+      <a href="https://www.instagram.com/reel/DTCc-BvkW5K/?igsh=YnlhYXloYndkMnF4" target="_blank" class="port-item" data-c="shortform">
         <div class="port-card"><img src="thumb-sound1.png" loading="lazy" decoding="async" alt="소리를디자인하다"><div class="port-overlay"></div><div class="play-icon"><div style="width:3rem;height:3rem;border-radius:9999px;background:rgba(232,255,71,0.2);border:1px solid rgba(232,255,71,0.4);display:flex;align-items:center;justify-content:center;"><iconify-icon icon="solar:play-bold" style="font-size:1.25rem;color:#E8FF47;margin-left:2px;"></iconify-icon></div></div>
         <div style="position:absolute;bottom:1rem;left:1rem;right:1rem;"><p class="text-white text-sm font-semibold break-keep">소리를디자인하다</p><div style="display:flex;align-items:center;gap:0.375rem;margin-top:0.25rem;"><iconify-icon icon="solar:instagram-linear" style="font-size:0.75rem;color:#71717a;"></iconify-icon><span style="font-size:0.7rem;color:#71717a;">교회 홀음 시공</span></div></div></div>
       </a>
  
-      <a href="https://www.instagram.com/reel/DSjagbckTcR/?igsh=MWFtNWxqamR4NDhiaA==" target="_blank" class="port-item" data-c="sound">
+      <a href="https://www.instagram.com/reel/DSjagbckTcR/?igsh=MWFtNWxqamR4NDhiaA==" target="_blank" class="port-item" data-c="shortform">
         <div class="port-card"><img src="thumb-sound2.png" loading="lazy" decoding="async" alt="소리를디자인하다"><div class="port-overlay"></div><div class="play-icon"><div style="width:3rem;height:3rem;border-radius:9999px;background:rgba(232,255,71,0.2);border:1px solid rgba(232,255,71,0.4);display:flex;align-items:center;justify-content:center;"><iconify-icon icon="solar:play-bold" style="font-size:1.25rem;color:#E8FF47;margin-left:2px;"></iconify-icon></div></div>
         <div style="position:absolute;bottom:1rem;left:1rem;right:1rem;"><p class="text-white text-sm font-semibold break-keep">소리를디자인하다</p><div style="display:flex;align-items:center;gap:0.375rem;margin-top:0.25rem;"><iconify-icon icon="solar:instagram-linear" style="font-size:0.75rem;color:#71717a;"></iconify-icon><span style="font-size:0.7rem;color:#71717a;">강의실 홀음</span></div></div></div>
       </a>
  
-      <a href="https://www.instagram.com/reel/DSbSyLKk9rj/?igsh=MWtzeTdzcnRpb2ZyYg==" target="_blank" class="port-item" data-c="sound">
+      <a href="https://www.instagram.com/reel/DSbSyLKk9rj/?igsh=MWtzeTdzcnRpb2ZyYg==" target="_blank" class="port-item" data-c="shortform">
         <div class="port-card"><img src="thumb-sound3.png" loading="lazy" decoding="async" alt="소리를디자인하다"><div class="port-overlay"></div><div class="play-icon"><div style="width:3rem;height:3rem;border-radius:9999px;background:rgba(232,255,71,0.2);border:1px solid rgba(232,255,71,0.4);display:flex;align-items:center;justify-content:center;"><iconify-icon icon="solar:play-bold" style="font-size:1.25rem;color:#E8FF47;margin-left:2px;"></iconify-icon></div></div>
         <div style="position:absolute;bottom:1rem;left:1rem;right:1rem;"><p class="text-white text-sm font-semibold break-keep">소리를디자인하다</p><div style="display:flex;align-items:center;gap:0.375rem;margin-top:0.25rem;"><iconify-icon icon="solar:instagram-linear" style="font-size:0.75rem;color:#71717a;"></iconify-icon><span style="font-size:0.7rem;color:#71717a;">스튜디오 방음</span></div></div></div>
       </a>
  
-      <a href="https://www.instagram.com/reel/C11hYS2vdAb/?igsh=MWs3ZjZqYnB3NWJqcg==" target="_blank" class="port-item" data-c="jmmondo">
+      <a href="https://www.instagram.com/reel/C11hYS2vdAb/?igsh=MWs3ZjZqYnB3NWJqcg==" target="_blank" class="port-item" data-c="shortform">
         <div class="port-card"><img src="thumb-jmmondo1.png" loading="lazy" decoding="async" alt="제이엠몬도"><div class="port-overlay"></div><div class="play-icon"><div style="width:3rem;height:3rem;border-radius:9999px;background:rgba(232,255,71,0.2);border:1px solid rgba(232,255,71,0.4);display:flex;align-items:center;justify-content:center;"><iconify-icon icon="solar:play-bold" style="font-size:1.25rem;color:#E8FF47;margin-left:2px;"></iconify-icon></div></div>
         <div style="position:absolute;bottom:1rem;left:1rem;right:1rem;"><p class="text-white text-sm font-semibold break-keep">제이엠몬도</p><div style="display:flex;align-items:center;gap:0.375rem;margin-top:0.25rem;"><iconify-icon icon="solar:instagram-linear" style="font-size:0.75rem;color:#71717a;"></iconify-icon><span style="font-size:0.7rem;color:#71717a;">아파트 인테리어 ①</span></div></div></div>
       </a>
  
-      <a href="https://www.instagram.com/reel/C7LRgInPRLC/?igsh=MXc0eWtuNTk0bTdieQ==" target="_blank" class="port-item" data-c="jmmondo">
+      <a href="https://www.instagram.com/reel/C7LRgInPRLC/?igsh=MXc0eWtuNTk0bTdieQ==" target="_blank" class="port-item" data-c="shortform">
         <div class="port-card"><img src="thumb-jmmondo2.png" loading="lazy" decoding="async" alt="제이엠몬도"><div class="port-overlay"></div><div class="play-icon"><div style="width:3rem;height:3rem;border-radius:9999px;background:rgba(232,255,71,0.2);border:1px solid rgba(232,255,71,0.4);display:flex;align-items:center;justify-content:center;"><iconify-icon icon="solar:play-bold" style="font-size:1.25rem;color:#E8FF47;margin-left:2px;"></iconify-icon></div></div>
         <div style="position:absolute;bottom:1rem;left:1rem;right:1rem;"><p class="text-white text-sm font-semibold break-keep">제이엠몬도</p><div style="display:flex;align-items:center;gap:0.375rem;margin-top:0.25rem;"><iconify-icon icon="solar:instagram-linear" style="font-size:0.75rem;color:#71717a;"></iconify-icon><span style="font-size:0.7rem;color:#71717a;">인테리어 팁 ②</span></div></div></div>
       </a>
  
-      <a href="https://www.instagram.com/reel/C1osIJML2Ju/?igsh=MXQzbmgzZWV0eXFtbA==" target="_blank" class="port-item" data-c="others">
+      <a href="https://www.instagram.com/reel/C1osIJML2Ju/?igsh=MXQzbmgzZWV0eXFtbA==" target="_blank" class="port-item" data-c="shortform">
         <div class="port-card"><img src="thumb-tonefitsun.png" loading="lazy" decoding="async" alt="톤핏선"><div class="port-overlay"></div><div class="play-icon"><div style="width:3rem;height:3rem;border-radius:9999px;background:rgba(232,255,71,0.2);border:1px solid rgba(232,255,71,0.4);display:flex;align-items:center;justify-content:center;"><iconify-icon icon="solar:play-bold" style="font-size:1.25rem;color:#E8FF47;margin-left:2px;"></iconify-icon></div></div>
         <div style="position:absolute;bottom:1rem;left:1rem;right:1rem;"><p class="text-white text-sm font-semibold break-keep">톤핏선</p><div style="display:flex;align-items:center;gap:0.375rem;margin-top:0.25rem;"><iconify-icon icon="solar:instagram-linear" style="font-size:0.75rem;color:#71717a;"></iconify-icon><span style="font-size:0.7rem;color:#71717a;">릴스</span></div></div></div>
       </a>
  
-      <a href="https://www.instagram.com/reel/DGC6tDGPyKK/?igsh=cjZpbWUwMG1yam9j" target="_blank" class="port-item" data-c="others">
+      <a href="https://www.instagram.com/reel/DGC6tDGPyKK/?igsh=cjZpbWUwMG1yam9j" target="_blank" class="port-item" data-c="shortform">
         <div class="port-card"><img src="thumb-oearth.png" loading="lazy" decoding="async" alt="오어스"><div class="port-overlay"></div><div class="play-icon"><div style="width:3rem;height:3rem;border-radius:9999px;background:rgba(232,255,71,0.2);border:1px solid rgba(232,255,71,0.4);display:flex;align-items:center;justify-content:center;"><iconify-icon icon="solar:play-bold" style="font-size:1.25rem;color:#E8FF47;margin-left:2px;"></iconify-icon></div></div>
         <div style="position:absolute;bottom:1rem;left:1rem;right:1rem;"><p class="text-white text-sm font-semibold break-keep">오어스</p><div style="display:flex;align-items:center;gap:0.375rem;margin-top:0.25rem;"><iconify-icon icon="solar:instagram-linear" style="font-size:0.75rem;color:#71717a;"></iconify-icon><span style="font-size:0.7rem;color:#71717a;">릴스</span></div></div></div>
       </a>
  
-      <a href="https://youtu.be/7Rj5SOcU58Q?si=R_CwO5YuPZZpaioX" target="_blank" class="port-item" data-c="others">
+      <a href="https://youtu.be/7Rj5SOcU58Q?si=R_CwO5YuPZZpaioX" target="_blank" class="port-item" data-c="interview">
         <div class="port-card"><img src="thumb-hvdent.png" loading="lazy" decoding="async" alt="휘바덴트"><div class="port-overlay"></div><div class="play-icon"><div style="width:3rem;height:3rem;border-radius:9999px;background:rgba(232,255,71,0.2);border:1px solid rgba(232,255,71,0.4);display:flex;align-items:center;justify-content:center;"><iconify-icon icon="solar:play-bold" style="font-size:1.25rem;color:#E8FF47;margin-left:2px;"></iconify-icon></div></div>
         <div style="position:absolute;bottom:1rem;left:1rem;right:1rem;"><p class="text-white text-sm font-semibold break-keep">휘바덴트</p><div style="display:flex;align-items:center;gap:0.375rem;margin-top:0.25rem;"><iconify-icon icon="solar:youtube-linear" style="font-size:0.75rem;color:#71717a;"></iconify-icon><span style="font-size:0.7rem;color:#71717a;">인터뷰 영상</span></div></div></div>
       </a>
@@ -462,30 +467,30 @@
     <div class="grid md:grid-cols-2 gap-12 items-center mb-20 fade-up">
       <div class="md:order-2">
         <span class="text-6xl font-bold text-zinc-800 block mb-6">02</span>
-        <h3 class="text-3xl font-bold text-white mb-4 break-keep">숏폼 콘텐츠 + 광고 운영</h3>
-        <p class="text-zinc-400 leading-relaxed break-keep mb-6">만든 영상을 직접 광고로 돌립니다. 제작과 운영이 분리되지 않기 때문에 성과가 안 나오면 콘텐츠 자체를 교체할 수 있는 유일한 구조예요.</p>
+        <h3 class="text-3xl font-bold text-white mb-4 break-keep">유튜브 · 롱폼 영상</h3>
+        <p class="text-zinc-400 leading-relaxed break-keep mb-6">대표 인터뷰부터 채널 시리즈물까지. 한 번의 촬영에서 롱폼과 숏폼을 동시에 만드는 구조로, 채널의 결을 일관되게 가져갑니다.</p>
         <div class="glass rounded-2xl px-5 py-4 mb-4" style="border-color:rgba(232,255,71,0.15);">
           <p class="text-accent text-xs font-semibold uppercase tracking-widest mb-2">프로세스</p>
           <div class="flex items-center gap-2 text-zinc-300 text-sm break-keep">
-            <span class="text-accent font-bold">촬영·편집</span>
+            <span class="text-accent font-bold">기획·구성</span>
             <iconify-icon icon="solar:arrow-right-linear" style="color:#52525b;"></iconify-icon>
-            <span>광고 집행</span>
+            <span>촬영</span>
             <iconify-icon icon="solar:arrow-right-linear" style="color:#52525b;"></iconify-icon>
-            <span>분석</span>
+            <span>편집</span>
             <iconify-icon icon="solar:arrow-right-linear" style="color:#52525b;"></iconify-icon>
-            <span>콘텐츠 교체</span>
+            <span>썸네일</span>
             <iconify-icon icon="solar:arrow-right-linear" style="color:#52525b;"></iconify-icon>
-            <span class="text-accent font-bold">반복</span>
+            <span class="text-accent font-bold">업로드</span>
           </div>
         </div>
         <div class="grid grid-cols-2 gap-3">
-          <div class="card rounded-2xl p-4"><iconify-icon icon="solar:video-library-bold" style="font-size:1.25rem;color:#E8FF47;display:block;margin-bottom:0.5rem;"></iconify-icon><p class="text-white text-sm font-semibold">Content + Ads</p><p class="text-zinc-500 text-xs mt-1 break-keep">콘텐츠 제작 + 광고 운영 통합</p></div>
-          <div class="card rounded-2xl p-4"><iconify-icon icon="solar:chart-2-bold" style="font-size:1.25rem;color:#E8FF47;display:block;margin-bottom:0.5rem;"></iconify-icon><p class="text-white text-sm font-semibold">월간 리포트</p><p class="text-zinc-500 text-xs mt-1 break-keep">성과 분석 · A/B 테스트 결과</p></div>
-          <div class="card rounded-2xl p-4"><iconify-icon icon="solar:target-bold" style="font-size:1.25rem;color:#E8FF47;display:block;margin-bottom:0.5rem;"></iconify-icon><p class="text-white text-sm font-semibold">광고 세팅</p><p class="text-zinc-500 text-xs mt-1 break-keep">캠페인 구조 · 타겟팅 설계</p></div>
-          <div class="card rounded-2xl p-4" style="border-color:rgba(232,255,71,0.15);"><iconify-icon icon="solar:graph-up-bold" style="font-size:1.25rem;color:#E8FF47;display:block;margin-bottom:0.5rem;"></iconify-icon><p class="text-accent text-sm font-semibold">Brand Growth</p><p class="text-zinc-500 text-xs mt-1 break-keep">콘텐츠 캘린더 · 분기 전략</p></div>
+          <div class="card rounded-2xl p-4"><iconify-icon icon="solar:videocamera-record-bold" style="font-size:1.25rem;color:#E8FF47;display:block;margin-bottom:0.5rem;"></iconify-icon><p class="text-white text-sm font-semibold">Basic</p><p class="text-zinc-500 text-xs mt-1 break-keep">1카메라 · 롱폼 1편 + 숏폼 1편</p></div>
+          <div class="card rounded-2xl p-4"><iconify-icon icon="solar:multiple-forward-right-bold" style="font-size:1.25rem;color:#E8FF47;display:block;margin-bottom:0.5rem;"></iconify-icon><p class="text-white text-sm font-semibold">Standard</p><p class="text-zinc-500 text-xs mt-1 break-keep">2카메라 · 롱폼 1편 + 숏폼 3편</p></div>
+          <div class="card rounded-2xl p-4"><iconify-icon icon="solar:gallery-wide-bold" style="font-size:1.25rem;color:#E8FF47;display:block;margin-bottom:0.5rem;"></iconify-icon><p class="text-white text-sm font-semibold">Premium</p><p class="text-zinc-500 text-xs mt-1 break-keep">멀티캠 풀패키지 · 메이킹 포함</p></div>
+          <div class="card rounded-2xl p-4" style="border-color:rgba(232,255,71,0.15);"><iconify-icon icon="solar:refresh-bold" style="font-size:1.25rem;color:#E8FF47;display:block;margin-bottom:0.5rem;"></iconify-icon><p class="text-accent text-sm font-semibold">Series</p><p class="text-zinc-500 text-xs mt-1 break-keep">정기 시리즈 · 월 단위 운영</p></div>
         </div>
       </div>
-      <div class="svc-img md:order-1" style="aspect-ratio:4/3;"><img src="thumb-oearth.png" loading="lazy" decoding="async" alt="숏폼 + 광고 운영"></div>
+      <div class="svc-img md:order-1" style="aspect-ratio:4/3;"><img src="thumb-sound-warmproject.png" loading="lazy" decoding="async" alt="유튜브 · 롱폼 영상 제작"></div>
     </div>
  
     <!-- 03 기업 인터뷰 -->
@@ -610,7 +615,7 @@
           <div><label class="text-zinc-500 text-xs uppercase tracking-widest block mb-2">브랜드명 / 회사명</label><input type="text" placeholder="예: 바우크래프트" class="w-full rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 text-sm focus:outline-none" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);"></div>
           <div><label class="text-zinc-500 text-xs uppercase tracking-widest block mb-2">연락처 (전화 또는 카카오)</label><input type="text" placeholder="010-XXXX-XXXX" class="w-full rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 text-sm focus:outline-none" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);"></div>
           <div><label class="text-zinc-500 text-xs uppercase tracking-widest block mb-2">이메일 (견적서 수신용)</label><input type="email" placeholder="example@email.com" class="w-full rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 text-sm focus:outline-none" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);"></div>
-          <div><label class="text-zinc-500 text-xs uppercase tracking-widest block mb-2">필요한 서비스</label><select class="w-full rounded-xl px-4 py-3.5 text-zinc-400 text-sm focus:outline-none" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);"><option value="">선택해주세요</option><option>숏폼 콘텐츠 제작</option><option>SNS 마케팅 · Meta 광고</option><option>기업 인터뷰 촬영</option><option>공연 · 라이브 촬영</option><option>기타 / 복합</option></select></div>
+          <div><label class="text-zinc-500 text-xs uppercase tracking-widest block mb-2">필요한 서비스</label><select class="w-full rounded-xl px-4 py-3.5 text-zinc-400 text-sm focus:outline-none" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);"><option value="">선택해주세요</option><option>숏폼 콘텐츠 제작</option><option>유튜브 · 롱폼 영상</option><option>기업 인터뷰 · 브랜드 필름</option><option>음악 · 공연 촬영</option><option>기타 / 복합</option></select></div>
           <div><label class="text-zinc-500 text-xs uppercase tracking-widest block mb-2">문의 내용</label><textarea rows="3" placeholder="현재 상황이나 궁금한 점을 자유롭게 적어주세요" class="w-full rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 text-sm focus:outline-none resize-none" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);"></textarea></div>
           <button onclick="submitForm(this)" class="btn-primary w-full py-4 rounded-xl text-base flex items-center justify-center gap-2 min-h-[52px]">문의 보내기 <iconify-icon icon="solar:arrow-right-bold" class="text-lg"></iconify-icon></button>
  
