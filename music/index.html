@@ -5,6 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>이제이필름 — 음악과 공연을 영상으로 담습니다</title>
   <meta name="description" content="워십 라이브, 뮤직비디오, 공연 촬영까지. 음악의 순간을 영상으로 남깁니다.">
+ 
+  <!-- ============ JSON-LD 구조화 데이터 ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "EJE MEDIA",
+    "alternateName": ["이제이미디어", "EJE Film 음악·공연"],
+    "url": "https://ejefilm.com/music",
+    "description": "워십 라이브, 뮤직비디오, 공연 촬영. 음악의 흐름을 이해하는 촬영감독이 현장의 감동을 영상으로 담습니다.",
+    "priceRange": "₩₩",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Republic of Korea"
+    },
+    "serviceType": [
+      "Live Music Video Production",
+      "Worship Live Recording",
+      "Music Video Production",
+      "Performance Filming",
+      "VJ and Visual Content"
+    ],
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "EJE Film",
+      "url": "https://ejefilm.com"
+    },
+    "sameAs": [
+      "https://www.instagram.com/eje_media"
+    ]
+  }
+  </script>
+ 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
   <script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
@@ -266,18 +299,24 @@
         </div>
       </div>
  
-    </div>
- 
-    <!-- 추가 예정 -->
-    <div class="fade-up">
-      <div class="card rounded-3xl p-8 md:p-12 flex flex-col items-center justify-center text-center" style="border-style:dashed;border-color:rgba(255,255,255,0.1);min-height:200px;">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-4" style="background:rgba(232,255,71,0.08);border:1px solid rgba(232,255,71,0.15);">
-          <iconify-icon icon="solar:add-circle-bold" style="color:#E8FF47;font-size:1.75rem;"></iconify-icon>
+      <!-- 서예린 음감회 -->
+      <div class="card rounded-3xl overflow-hidden">
+        <div class="yt-wrap">
+          <iframe src="https://www.youtube.com/embed/v-rI4DvAUpM" title="서예린 음감회" allowfullscreen loading="lazy"></iframe>
         </div>
-        <p class="text-white font-bold text-lg mb-2 break-keep">인디 아티스트 라이브 콘텐츠</p>
-        <p class="text-zinc-500 text-sm break-keep">촬영 준비 중 · 곧 업로드 예정</p>
-        <span class="tag mt-4">Coming Soon</span>
+        <div class="p-6 flex flex-col gap-3">
+          <div>
+            <p class="text-white font-bold break-keep">서예린 〈음감회라는 게〉</p>
+            <p class="text-zinc-500 text-sm mt-1">서예린 정규 1집 음감회 · 카페 침묵</p>
+          </div>
+          <div class="flex gap-2 flex-wrap">
+            <span class="tag">인디 아티스트</span>
+            <span class="tag">음감회</span>
+            <span class="tag">라이브 녹화</span>
+          </div>
+        </div>
       </div>
+ 
     </div>
   </div>
 </section>
@@ -491,6 +530,11 @@
         <a href="#services" class="block hover:text-white transition-colors">서비스</a>
         <a href="#contact" class="block hover:text-white transition-colors">문의</a>
         <a href="/" class="block hover:text-white transition-colors">메인 사이트</a>
+      </div>
+      <div class="space-y-2">
+        <p class="text-zinc-300 font-semibold text-xs uppercase tracking-widest mb-3">소셜</p>
+        <a href="https://www.instagram.com/eje_media" target="_blank" rel="noopener" class="block hover:text-white transition-colors">Instagram</a>
+        <p class="text-zinc-600 text-xs pt-1 leading-relaxed">All visuals<br>© EJE MEDIA</p>
       </div>
       <div class="space-y-2">
         <p class="text-zinc-300 font-semibold text-xs uppercase tracking-widest mb-3">다른 서비스</p>
